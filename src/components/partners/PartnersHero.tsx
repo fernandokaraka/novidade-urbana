@@ -29,7 +29,7 @@ const directors = [
 export function PartnersHero() {
   return (
     <section className="relative pt-32 lg:pt-40 pb-16 lg:pb-24 overflow-hidden bg-black">
-      <div className="container-site relative z-10 px-4 max-w-5xl">
+      <div className="container-site relative z-10 px-4 max-w-2xl mx-auto">
         {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -75,12 +75,12 @@ export function PartnersHero() {
               className="text-center"
             >
               {/* Photo */}
-              <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden mb-6">
+              <div className="relative w-full overflow-hidden mb-6" style={{ height: '450px', borderRadius: '16px' }}>
                 <Image
                   src={director.photo}
                   alt={director.name}
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </div>
 

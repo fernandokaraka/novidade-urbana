@@ -66,74 +66,85 @@ export function Recognition() {
               }}
             >
               Reconhecimento
-              <br />& Projetos
             </span>
             <span
-              className="px-3 md:px-4 inline-block text-[3rem] lg:text-[112px]"
+              className="block text-[2.25rem] lg:text-[76.93px]"
               style={{
-                fontFamily: 'var(--font-yellowtail)',
-                fontWeight: 400,
+                fontFamily: 'var(--font-tt-runs)',
+                fontWeight: 700,
                 letterSpacing: '-0.02em',
-                backgroundColor: '#545454',
-                color: '#FCFF00'
+                color: '#545454'
               }}
             >
-              Especiais
+              & Projetos{' '}
+              <span
+                className="px-3 md:px-4 inline-block text-[3rem] lg:text-[112px]"
+                style={{
+                  fontFamily: 'var(--font-yellowtail)',
+                  fontWeight: 400,
+                  letterSpacing: '-0.02em',
+                  backgroundColor: '#545454',
+                  color: '#FCFF00'
+                }}
+              >
+                Especiais
+              </span>
             </span>
           </h2>
         </motion.div>
 
         {/* Grid Layout */}
-        <div className="grid lg:grid-cols-2 gap-6 mb-12">
-          {/* Large Cards */}
-          {recognitionItems.slice(0, 2).map((item, index) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="relative overflow-hidden rounded-2xl"
-              style={{ height: '500px' }}
-            >
-              <Image
-                src={item.photo}
-                alt={item.title}
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                <h3
-                  className="mb-3"
-                  style={{
-                    fontFamily: 'var(--font-tt-runs)',
-                    fontSize: '32px',
-                    fontWeight: 700,
-                    lineHeight: '38px',
-                    letterSpacing: '-0.02em'
-                  }}
-                >
-                  {item.title}
-                </h3>
-                <p
-                  style={{
-                    fontFamily: 'var(--font-tt-runs)',
-                    fontSize: '16px',
-                    fontWeight: 400,
-                    lineHeight: '24px',
-                    letterSpacing: '0'
-                  }}
-                >
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <div className="mb-12">
+          {/* First Row - 70/30 split */}
+          <div className="grid gap-6 mb-6" style={{ gridTemplateColumns: '7fr 3fr' }}>
+            {recognitionItems.slice(0, 2).map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="relative overflow-hidden rounded-2xl"
+                style={{ height: '744px' }}
+              >
+                <Image
+                  src={item.photo}
+                  alt={item.title}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                  <h3
+                    className="mb-3"
+                    style={{
+                      fontFamily: 'var(--font-tt-runs)',
+                      fontSize: '32px',
+                      fontWeight: 700,
+                      lineHeight: '38px',
+                      letterSpacing: '-0.02em'
+                    }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-tt-runs)',
+                      fontSize: '16px',
+                      fontWeight: 400,
+                      lineHeight: '24px',
+                      letterSpacing: '0'
+                    }}
+                  >
+                    {item.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
 
-        {/* Small Cards Row */}
-        <div className="grid lg:grid-cols-3 gap-6 mb-12">
+          {/* Second Row - 3 equal columns */}
+          <div className="grid gap-6" style={{ gridTemplateColumns: '1fr 1fr 1fr' }}>
           {recognitionItems.slice(2).map((item, index) => (
             <motion.div
               key={item.title}
@@ -142,7 +153,7 @@ export function Recognition() {
               viewport={{ once: true }}
               transition={{ delay: (index + 2) * 0.1 }}
               className="relative overflow-hidden rounded-2xl"
-              style={{ height: '300px' }}
+              style={{ height: '358px' }}
             >
               <Image
                 src={item.photo}
@@ -178,6 +189,7 @@ export function Recognition() {
               </div>
             </motion.div>
           ))}
+          </div>
         </div>
 
         {/* Description Text */}
