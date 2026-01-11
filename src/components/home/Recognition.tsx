@@ -8,27 +8,27 @@ const recognitionItems = [
   {
     title: 'Grammy',
     description: 'Thalles Roberto teve seu trabalho reconhecido internacionalmente com indicação ao Grammy Latino, um dos prêmios mais importantes da música mundial.',
-    photo: '/images/recognition/grammy.png',
+    photo: '/images/projects/grammy-card-home-background.png',
   },
   {
     title: 'Reveillon 2026',
     description: 'Título de Maior Reveillon do Mundo',
-    photo: '/images/recognition/reveillon-2026.png',
+    photo: '/images/projects/reveillon-2026-home-card-bg.png',
   },
   {
     title: 'Feat. Jorge',
     description: 'Encontro poderoso entre vocês e propósito Cristo',
-    photo: '/images/recognition/feat-jorge.png',
+    photo: '/images/projects/feat-jorge-card-home-bg.png',
   },
   {
     title: 'Av. do Arrependimento',
     description: 'Produção Dudu Borges',
-    photo: '/images/recognition/avenida-arrependimento.png',
+    photo: '/images/projects/av-do-arrependimento-card-home-bg.png',
   },
   {
     title: 'DEUS GRANDE',
     description: 'Marcelo Aguiar',
-    photo: '/images/recognition/deus-grande.png',
+    photo: '/images/projects/deus-grande-card-home-bg.png',
   }
 ]
 
@@ -38,7 +38,7 @@ export function Recognition() {
       {/* Background Texture */}
       <div className="absolute inset-0 opacity-30">
         <Image
-          src="/images/backgrounds/background-reconhecimento.png"
+          src="/images/backgrounds/bg-reconhecimentos e progressos.png"
           alt=""
           fill
           quality={100}

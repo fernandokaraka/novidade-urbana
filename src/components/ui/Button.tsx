@@ -1,13 +1,18 @@
-import { ButtonHTMLAttributes, forwardRef } from 'react'
+import { forwardRef, ReactNode } from 'react'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { buttonHover } from '@/lib/animations'
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps {
+  children?: ReactNode
+  className?: string
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost'
   size?: 'sm' | 'md' | 'lg'
   isLoading?: boolean
   fullWidth?: boolean
+  disabled?: boolean
+  type?: 'button' | 'submit' | 'reset'
+  onClick?: () => void
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -21,7 +26,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       fullWidth = false,
       disabled,
       type = 'button',
-      ...props
+      onClick,
     },
     ref
   ) => {
@@ -54,11 +59,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           className
         )}
         disabled={disabled || isLoading}
+        onClick={onClick}
         variants={buttonHover}
         initial="rest"
         whileHover="hover"
         whileTap="tap"
-        {...props}
       >
         {isLoading ? (
           <>

@@ -3,16 +3,16 @@ import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { cardHover } from '@/lib/animations'
 
-interface CardProps extends HTMLAttributes<HTMLDivElement> {
+interface CardProps {
   hover?: boolean
   children: ReactNode
+  className?: string
 }
 
 export function Card({
   children,
   className,
   hover = false,
-  ...props
 }: CardProps) {
   const baseStyles =
     'bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden'
@@ -24,7 +24,6 @@ export function Card({
         variants={cardHover}
         initial="rest"
         whileHover="hover"
-        {...props}
       >
         {children}
       </motion.div>
@@ -32,7 +31,7 @@ export function Card({
   }
 
   return (
-    <div className={cn(baseStyles, className)} {...props}>
+    <div className={cn(baseStyles, className)}>
       {children}
     </div>
   )

@@ -88,7 +88,7 @@ export const textReveal: Variants = {
 }
 
 // Card Hover
-export const cardHover = {
+export const cardHover: Variants = {
   rest: {
     y: 0,
     transition: { duration: 0.3, ease: 'easeOut' },
@@ -100,7 +100,7 @@ export const cardHover = {
 }
 
 // Button Hover
-export const buttonHover = {
+export const buttonHover: Variants = {
   rest: {
     scale: 1,
     transition: { duration: 0.2 },
@@ -115,7 +115,7 @@ export const buttonHover = {
 }
 
 // Image Scale on Hover
-export const imageScale = {
+export const imageScale: Variants = {
   rest: {
     scale: 1,
     transition: { duration: 0.4 },
