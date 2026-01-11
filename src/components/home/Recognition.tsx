@@ -54,27 +54,28 @@ export function Recognition() {
           viewport={{ once: true }}
           className="mb-12 text-center"
         >
-          <h2 className="text-gray-800" style={{ lineHeight: '1' }}>
+          <h2 style={{ lineHeight: '1.1' }}>
             <span
-              className="block"
+              className="block text-[2.25rem] lg:text-[76.93px]"
               style={{
                 fontFamily: 'var(--font-tt-runs)',
-                fontSize: '2.25rem',
                 fontWeight: 700,
                 letterSpacing: '-0.02em',
-                marginBottom: '0.5rem'
+                marginBottom: '0.5rem',
+                color: '#545454'
               }}
             >
               Reconhecimento
               <br />& Projetos
             </span>
             <span
-              className="bg-brand-yellow px-3 md:px-4 inline-block"
+              className="px-3 md:px-4 inline-block text-[3rem] lg:text-[112px]"
               style={{
                 fontFamily: 'var(--font-yellowtail)',
-                fontSize: '3rem',
                 fontWeight: 400,
-                letterSpacing: '-0.02em'
+                letterSpacing: '-0.02em',
+                backgroundColor: '#545454',
+                color: '#FCFF00'
               }}
             >
               Especiais

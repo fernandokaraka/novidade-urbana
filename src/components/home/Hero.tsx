@@ -43,36 +43,33 @@ export function Hero() {
             {/* Main Headline */}
             <h1 className="mb-6 lg:mb-12">
               <span
-                className="block text-brand-yellow"
+                className="block lg:inline text-brand-yellow text-[36px] lg:text-[48px]"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '36px',
                   fontWeight: 700,
                   lineHeight: '1.15',
                   letterSpacing: '-0.02em',
                 }}
               >
-                Gestão e agenciamento artístico
+                Gestão e agenciamento artístico{' '}
               </span>
               <span
-                className="block text-white"
+                className="block lg:inline text-white text-[30px] lg:text-[48px]"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '30px',
                   fontWeight: 400,
                   lineHeight: '1.15',
                   letterSpacing: '-0.02em',
                 }}
               >
-                com reconhecimento
+                com reconhecimento{' '}
               </span>
               <span
-                className="block text-brand-yellow"
+                className="block lg:inline text-brand-yellow text-[56px] lg:text-[64px]"
                 style={{
                   fontFamily: 'var(--font-yellowtail)',
-                  fontSize: '56px',
                   fontWeight: 400,
-                  lineHeight: '0.70',
+                  lineHeight: '1.15',
                   letterSpacing: '-0.02em',
                 }}
               >

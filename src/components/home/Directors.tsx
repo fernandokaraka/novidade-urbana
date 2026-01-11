@@ -48,12 +48,12 @@ export function Directors() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-12 lg:mb-16"
-          style={{ lineHeight: '1' }}
+          style={{ lineHeight: '1.1' }}
         >
           <span
+            className="text-[48px] lg:text-[112px]"
             style={{
               fontFamily: 'var(--font-yellowtail)',
-              fontSize: '48px',
               fontWeight: 400,
               letterSpacing: '-2px',
               color: '#FCFF00',
@@ -62,9 +62,9 @@ export function Directors() {
             Sócios
           </span>
           <span
+            className="text-[38px] lg:text-[76.93px]"
             style={{
               fontFamily: 'var(--font-tt-runs)',
-              fontSize: '38px',
               fontWeight: 700,
               letterSpacing: '-2px',
               color: '#FFFFFF',

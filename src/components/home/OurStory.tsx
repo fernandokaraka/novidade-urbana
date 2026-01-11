@@ -28,23 +28,22 @@ export function OurStory() {
             className="text-white"
           >
             {/* Title */}
-            <h2 className="mb-8" style={{ lineHeight: '1' }}>
+            <h2 className="mb-8" style={{ lineHeight: '1.1' }}>
               <span
-                className="block"
+                className="block text-[4.25rem] lg:text-[76.93px]"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '4.25rem',
                   fontWeight: 700,
-                  letterSpacing: '-0.02em'
+                  letterSpacing: '-0.02em',
+                  color: '#FFFFFF'
                 }}
               >
                 Nossa
               </span>
               <span
-                className="block"
+                className="block text-[5rem] lg:text-[112px]"
                 style={{
                   fontFamily: 'var(--font-yellowtail)',
-                  fontSize: '5rem',
                   fontWeight: 400,
                   letterSpacing: '-0.02em',
                   color: '#FCFF00'

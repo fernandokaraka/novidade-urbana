@@ -1,11 +1,11 @@
 import { PublicLayout } from '@/components/layout'
-import { ProjectsHero } from '@/components/projects'
+import { PartnersHero } from '@/components/partners'
 import { CTAContact } from '@/components/home'
 
-export default function ProjectsPage() {
+export default function SociosPage() {
   return (
     <PublicLayout>
-      <ProjectsHero />
+      <PartnersHero />
       <CTAContact />
     </PublicLayout>
   )
