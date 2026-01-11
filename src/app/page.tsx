@@ -4,6 +4,7 @@ import {
   FeaturedArtists,
   Recognition,
   OurStory,
+  Directors,
 } from '@/components/home'
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <FeaturedArtists />
       <Recognition />
       <OurStory />
+      <Directors />
     </PublicLayout>
   )
 }
