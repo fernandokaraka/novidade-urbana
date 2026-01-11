@@ -41,21 +41,21 @@ export function Directors() {
         />
       </div>
 
-      <div className="container-site relative z-10">
+      <div className="container-site relative z-10 px-4">
         {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-12 lg:mb-16"
+          style={{ lineHeight: '1' }}
         >
           <span
             style={{
               fontFamily: 'var(--font-yellowtail)',
-              fontSize: '112px',
+              fontSize: '48px',
               fontWeight: 400,
-              lineHeight: '119.65px',
-              letterSpacing: '-0.02em',
+              letterSpacing: '-2px',
               color: '#FCFF00',
             }}
           >
@@ -64,10 +64,9 @@ export function Directors() {
           <span
             style={{
               fontFamily: 'var(--font-tt-runs)',
-              fontSize: '76.93px',
+              fontSize: '38px',
               fontWeight: 700,
-              lineHeight: '119.65px',
-              letterSpacing: '-0.02em',
+              letterSpacing: '-2px',
               color: '#FFFFFF',
             }}
           >

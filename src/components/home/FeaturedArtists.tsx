@@ -42,7 +42,7 @@ export function FeaturedArtists() {
         />
       </div>
 
-      <div className="container-site relative z-10">
+      <div className="container-site relative z-10 px-4">
         {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -52,22 +52,20 @@ export function FeaturedArtists() {
         >
           <h2 className="text-black">
             <span
+              className="text-4xl md:text-6xl lg:text-7xl block lg:inline"
               style={{
                 fontFamily: 'var(--font-tt-runs)',
-                fontSize: '76.93px',
                 fontWeight: 700,
-                lineHeight: '119.65px',
                 letterSpacing: '-0.02em'
               }}
             >
               Artistas em{' '}
             </span>
             <span
+              className="text-5xl md:text-7xl lg:text-8xl block lg:inline"
               style={{
                 fontFamily: 'var(--font-yellowtail)',
-                fontSize: '112px',
                 fontWeight: 400,
-                lineHeight: '119.65px',
                 letterSpacing: '-0.02em'
               }}
             >
@@ -81,7 +79,7 @@ export function FeaturedArtists() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-6"
+          className="mb-8"
         >
           <div className="relative overflow-hidden rounded-2xl mb-4" style={{ height: '400px' }}>
             <Image
@@ -120,7 +118,7 @@ export function FeaturedArtists() {
         </motion.div>
 
         {/* Small Cards - Marcelo and Marcados */}
-        <div className="grid lg:grid-cols-2 gap-6 mb-12">
+        <div className="grid lg:grid-cols-2 gap-8 mb-12">
           {/* Marcelo Aguiar */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -150,7 +148,6 @@ export function FeaturedArtists() {
                 {featuredArtists[1].name}
               </h3>
               <p
-                className="line-clamp-2"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
                   fontSize: '16px',
@@ -193,7 +190,6 @@ export function FeaturedArtists() {
                 {featuredArtists[2].name}
               </h3>
               <p
-                className="line-clamp-2"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
                   fontSize: '16px',

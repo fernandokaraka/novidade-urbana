@@ -1,81 +1,298 @@
 'use client'
 
-import Link from 'next/link'
+import { useState } from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { ArrowRight, Mail, Phone } from 'lucide-react'
-import { Container, Section } from '@/components/layout'
-import { fadeInUp } from '@/lib/animations'
 
 export function CTAContact() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    message: '',
+  })
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // TODO: Implementar envio do formulário
+    console.log('Form data:', formData)
+  }
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    })
+  }
+
   return (
-    <Section background="yellow" padding="xl">
-      <Container>
-        <div className="max-w-4xl mx-auto text-center">
+    <section className="relative py-16 lg:py-24 overflow-hidden bg-black">
+      <div className="container-site relative z-10 px-4">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Left - Form */}
           <motion.div
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            variants={fadeInUp}
           >
-            <h2
-              className="text-4xl lg:text-6xl font-black text-black uppercase mb-6"
-              style={{ fontFamily: 'var(--font-heading)' }}
-            >
-              Vamos Criar Algo{' '}
-              <span className="inline-block bg-black text-brand-yellow px-4">
-                Incrível
-              </span>{' '}
-              Juntos?
+            {/* Title */}
+            <h2 className="mb-4">
+              <span
+                className="text-4xl md:text-6xl lg:text-7xl"
+                style={{
+                  fontFamily: 'Poppins, sans-serif',
+                  fontWeight: 700,
+                  letterSpacing: '-0.02em',
+                  color: '#FFFFFF',
+                  display: 'block',
+                }}
+              >
+                Vamos
+              </span>
+              <span
+                className="text-4xl md:text-6xl lg:text-7xl"
+                style={{
+                  fontFamily: 'Poppins, sans-serif',
+                  fontWeight: 700,
+                  letterSpacing: '-0.02em',
+                  color: '#FFFFFF',
+                  display: 'block',
+                }}
+              >
+                conversar
+              </span>
             </h2>
 
-            <p className="text-xl text-gray-800 mb-8 max-w-2xl mx-auto">
-              Entre em contato conosco e descubra como podemos transformar sua
-              carreira artística ou realizar seu próximo grande projeto.
+            {/* Subtitle */}
+            <p
+              style={{
+                fontFamily: 'Poppins, sans-serif',
+                fontSize: '16px',
+                fontWeight: 400,
+                lineHeight: '24px',
+                letterSpacing: '0',
+                color: '#CCCCCC',
+              }}
+              className="mb-8"
+            >
+              Amet nisl ut eget accumsan eleifend tincidunt.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Link
-                href="/contato"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white font-bold uppercase hover:bg-gray-900 transition-colors"
-                style={{ fontFamily: 'var(--font-heading)' }}
-              >
-                <Mail size={20} />
-                Enviar Mensagem
-                <ArrowRight size={20} />
-              </Link>
+            {/* Form */}
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Nome e Sobrenome */}
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label
+                    htmlFor="firstName"
+                    style={{
+                      fontFamily: 'var(--font-tt-runs)',
+                      fontSize: '14px',
+                      fontWeight: 400,
+                      lineHeight: '20px',
+                      color: '#FFFFFF',
+                    }}
+                    className="block mb-2"
+                  >
+                    Nome
+                  </label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    placeholder="Nome"
+                    required
+                    className="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-brand-yellow transition-colors"
+                    style={{
+                      fontFamily: 'Poppins, sans-serif',
+                      fontSize: '14px',
+                      backgroundColor: '#1B1B1B',
+                      borderWidth: '1px',
+                      borderStyle: 'solid',
+                      borderColor: '#333741',
+                    }}
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="lastName"
+                    style={{
+                      fontFamily: 'var(--font-tt-runs)',
+                      fontSize: '14px',
+                      fontWeight: 400,
+                      lineHeight: '20px',
+                      color: '#FFFFFF',
+                    }}
+                    className="block mb-2"
+                  >
+                    Sobrenome
+                  </label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    placeholder="Sobrenome"
+                    required
+                    className="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-brand-yellow transition-colors"
+                    style={{
+                      fontFamily: 'Poppins, sans-serif',
+                      fontSize: '14px',
+                      backgroundColor: '#1B1B1B',
+                      borderWidth: '1px',
+                      borderStyle: 'solid',
+                      borderColor: '#333741',
+                    }}
+                  />
+                </div>
+              </div>
 
-              <a
-                href="https://wa.me/5511999999999"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black border-2 border-black font-bold uppercase hover:bg-black hover:text-white transition-colors"
-                style={{ fontFamily: 'var(--font-heading)' }}
-              >
-                <Phone size={20} />
-                WhatsApp
-              </a>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-6 justify-center text-sm text-gray-800">
-              <div className="flex items-center gap-2">
-                <Mail size={16} />
-                <a
-                  href="mailto:contato@novidadeurbana.com"
-                  className="hover:underline"
+              {/* Email */}
+              <div>
+                <label
+                  htmlFor="email"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    fontSize: '14px',
+                    fontWeight: 400,
+                    lineHeight: '20px',
+                    color: '#FFFFFF',
+                  }}
+                  className="block mb-2"
                 >
-                  contato@novidadeurbana.com
-                </a>
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="seu@email.com"
+                  required
+                  className="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-brand-yellow transition-colors"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    fontSize: '14px',
+                    backgroundColor: '#1B1B1B',
+                    borderWidth: '1px',
+                    borderStyle: 'solid',
+                    borderColor: '#333741',
+                  }}
+                />
               </div>
-              <div className="flex items-center gap-2">
-                <Phone size={16} />
-                <a href="tel:+5511999999999" className="hover:underline">
-                  +55 11 99999-9999
-                </a>
+
+              {/* Telefone */}
+              <div>
+                <label
+                  htmlFor="phone"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    fontSize: '14px',
+                    fontWeight: 400,
+                    lineHeight: '20px',
+                    color: '#FFFFFF',
+                  }}
+                  className="block mb-2"
+                >
+                  Telefone
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="(12) 98225 - 5252"
+                  required
+                  className="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-brand-yellow transition-colors"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    fontSize: '14px',
+                    backgroundColor: '#1B1B1B',
+                    borderWidth: '1px',
+                    borderStyle: 'solid',
+                    borderColor: '#333741',
+                  }}
+                />
               </div>
+
+              {/* Mensagem */}
+              <div>
+                <label
+                  htmlFor="message"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    fontSize: '14px',
+                    fontWeight: 400,
+                    lineHeight: '20px',
+                    color: '#FFFFFF',
+                  }}
+                  className="block mb-2"
+                >
+                  Mensagem
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Nos deixa uma mensagem..."
+                  required
+                  rows={5}
+                  className="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-brand-yellow transition-colors resize-none"
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    fontSize: '14px',
+                    backgroundColor: '#1B1B1B',
+                    borderWidth: '1px',
+                    borderStyle: 'solid',
+                    borderColor: '#333741',
+                  }}
+                />
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                className="w-full px-10 py-4 bg-brand-yellow text-black rounded-lg hover:bg-yellow-400 transition-colors"
+                style={{
+                  fontFamily: 'Poppins, sans-serif',
+                  fontSize: '16px',
+                  fontWeight: 700,
+                  lineHeight: '19px',
+                  letterSpacing: '0',
+                }}
+              >
+                Enviar
+              </button>
+            </form>
+          </motion.div>
+
+          {/* Right - Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative hidden lg:block h-full"
+          >
+            <div className="relative h-full rounded-2xl overflow-hidden">
+              <Image
+                src="/images/img-contato-home.png"
+                alt="Contato"
+                fill
+                className="object-contain"
+              />
             </div>
           </motion.div>
         </div>
-      </Container>
-    </Section>
+      </div>
+    </section>
   )
 }

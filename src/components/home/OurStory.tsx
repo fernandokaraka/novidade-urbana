@@ -18,7 +18,7 @@ export function OurStory() {
         />
       </div>
 
-      <div className="container-site relative z-10">
+      <div className="container-site relative z-10 px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <motion.div
@@ -28,24 +28,24 @@ export function OurStory() {
             className="text-white"
           >
             {/* Title */}
-            <h2 className="mb-8">
+            <h2 className="mb-8" style={{ lineHeight: '1' }}>
               <span
+                className="block"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '76.93px',
+                  fontSize: '4.25rem',
                   fontWeight: 700,
-                  lineHeight: '119.65px',
                   letterSpacing: '-0.02em'
                 }}
               >
-                Nossa{' '}
+                Nossa
               </span>
               <span
+                className="block"
                 style={{
                   fontFamily: 'var(--font-yellowtail)',
-                  fontSize: '112px',
+                  fontSize: '5rem',
                   fontWeight: 400,
-                  lineHeight: '119.65px',
                   letterSpacing: '-0.02em',
                   color: '#FCFF00'
                 }}
@@ -102,7 +102,7 @@ export function OurStory() {
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="relative"
+            className="relative lg:block hidden"
           >
             <div className="relative h-[500px] rounded-2xl overflow-hidden">
               <Image
@@ -114,6 +114,23 @@ export function OurStory() {
             </div>
           </motion.div>
         </div>
+
+        {/* Mobile Image - aligned with button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="lg:hidden mt-8"
+        >
+          <div className="relative h-[400px] rounded-2xl overflow-hidden">
+            <Image
+              src="/images/decorative/nossa-historia-home-img.png"
+              alt="Nossa História"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </motion.div>
       </div>
     </section>
   )

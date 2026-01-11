@@ -5,6 +5,7 @@ import {
   Recognition,
   OurStory,
   Directors,
+  CTAContact,
 } from '@/components/home'
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <Recognition />
       <OurStory />
       <Directors />
+      <CTAContact />
     </PublicLayout>
   )
 }

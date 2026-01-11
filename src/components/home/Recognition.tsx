@@ -46,7 +46,7 @@ export function Recognition() {
         />
       </div>
 
-      <div className="container-site relative z-10">
+      <div className="container-site relative z-10 px-4">
         {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -54,26 +54,26 @@ export function Recognition() {
           viewport={{ once: true }}
           className="mb-12 text-center"
         >
-          <h2 className="text-gray-800">
+          <h2 className="text-gray-800" style={{ lineHeight: '1' }}>
             <span
+              className="block"
               style={{
                 fontFamily: 'var(--font-tt-runs)',
-                fontSize: '76.93px',
+                fontSize: '2.25rem',
                 fontWeight: 700,
-                lineHeight: '119.65px',
-                letterSpacing: '-0.02em'
+                letterSpacing: '-0.02em',
+                marginBottom: '0.5rem'
               }}
             >
               Reconhecimento
-              <br />& Projetos{' '}
+              <br />& Projetos
             </span>
             <span
-              className="bg-brand-yellow px-4"
+              className="bg-brand-yellow px-3 md:px-4 inline-block"
               style={{
                 fontFamily: 'var(--font-yellowtail)',
-                fontSize: '112px',
+                fontSize: '3rem',
                 fontWeight: 400,
-                lineHeight: '119.65px',
                 letterSpacing: '-0.02em'
               }}
             >
