@@ -1,0 +1,277 @@
+@import "tailwindcss";
+
+/* ==================== VARIAVEIS CSS ==================== */
+:root {
+  /* Cores Brand */
+  --color-brand-yellow: #FCFF00;
+  --color-brand-black: #000000;
+  --color-brand-white: #FFFFFF;
+  --color-brand-gray: #545454;
+  --color-brand-orange: #FF5E33;
+
+  /* Backgrounds */
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* Transicoes */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
+
+  /* Tipografia */
+  --text-hero: clamp(3rem, 8vw, 6rem);
+  --text-h1: clamp(2.5rem, 5vw, 4rem);
+  --text-h2: clamp(1.75rem, 3vw, 2.5rem);
+  --text-h3: clamp(1.25rem, 2vw, 1.75rem);
+  --text-body-lg: 1.125rem;
+  --text-body: 1rem;
+  --text-body-sm: 0.875rem;
+  --text-caption: 0.75rem;
+}
+
+/* ==================== TAILWIND THEME ==================== */
+@theme inline {
+  /* Cores */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Cores Brand */
+  --color-brand-yellow: #FCFF00;
+  --color-brand-black: #000000;
+  --color-brand-white: #FFFFFF;
+  --color-brand-gray: #545454;
+  --color-brand-orange: #FF5E33;
+
+  /* Fontes */
+  --font-heading: var(--font-tt-runs), "Bebas Neue", "Oswald", sans-serif;
+  --font-body: var(--font-inter), "Inter", system-ui, sans-serif;
+  --font-script: var(--font-script), "Pacifico", cursive;
+  --font-poppins: var(--font-poppins), "Poppins", sans-serif;
+  --font-yellowtail: var(--font-yellowtail), "Yellowtail", cursive;
+
+  /* Font Sizes */
+  --font-size-hero: clamp(3rem, 8vw, 6rem);
+  --font-size-h1: clamp(2.5rem, 5vw, 4rem);
+  --font-size-h2: clamp(1.75rem, 3vw, 2.5rem);
+  --font-size-h3: clamp(1.25rem, 2vw, 1.75rem);
+
+  /* Spacing */
+  --spacing-section-mobile: 48px;
+  --spacing-section-desktop: 80px;
+  --spacing-header: 20px;
+  --spacing-footer: 32px;
+}
+
+/* ==================== ESTILOS BASE ==================== */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==================== CLASSES UTILITARIAS ==================== */
+
+/* Container do site */
+.container-site {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Padding de secao */
+.section-padding {
+  @apply py-12 lg:py-20;
+}
+
+/* Headings */
+.heading-hero {
+  font-size: var(--text-hero);
+  font-family: var(--font-heading);
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.heading-h1 {
+  font-size: var(--text-h1);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.heading-h2 {
+  font-size: var(--text-h2);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.heading-h3 {
+  font-size: var(--text-h3);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Botao Primario */
+.btn-primary {
+  @apply inline-flex items-center justify-center px-8 py-4 text-lg font-bold uppercase tracking-wider transition-all duration-300;
+  background-color: var(--color-brand-yellow);
+  color: var(--color-brand-black);
+  font-family: var(--font-heading);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-brand-orange);
+  color: var(--color-brand-white);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(252, 255, 0, 0.3);
+}
+
+/* Botao Secundario (Outline) */
+.btn-secondary {
+  @apply inline-flex items-center justify-center px-8 py-4 text-lg font-bold uppercase tracking-wider transition-all duration-300 border-2;
+  border-color: var(--color-brand-yellow);
+  color: var(--color-brand-yellow);
+  font-family: var(--font-heading);
+  background: transparent;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-brand-yellow);
+  color: var(--color-brand-black);
+}
+
+/* Card base */
+.card-base {
+  @apply relative overflow-hidden transition-all duration-500;
+  background-color: var(--color-brand-black);
+}
+
+.card-base:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Background sections */
+.bg-brand-dark {
+  background-color: var(--color-brand-black);
+  color: var(--color-brand-white);
+}
+
+.bg-brand-light {
+  background-color: var(--color-brand-white);
+  color: var(--color-brand-black);
+}
+
+/* Texto com destaque amarelo */
+.text-highlight {
+  color: var(--color-brand-yellow);
+}
+
+/* Link com underline animado */
+.link-animated {
+  @apply relative;
+}
+
+.link-animated::after {
+  @apply absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300;
+  content: '';
+  background-color: var(--color-brand-yellow);
+}
+
+.link-animated:hover::after {
+  @apply w-full;
+}
+
+/* Scrollbar customizado */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-brand-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-gray);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-yellow);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-brand-yellow);
+  color: var(--color-brand-black);
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--color-brand-yellow);
+  outline-offset: 2px;
+}
+
+/* ==================== ANIMACOES BASE ==================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out forwards;
+}

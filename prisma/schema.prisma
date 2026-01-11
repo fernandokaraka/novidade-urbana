@@ -1,0 +1,244 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ==================== AUTENTICACAO ====================
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String // Hash bcrypt
+  role      Role     @default(EDITOR)
+  avatar    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relacoes
+  projects  Project[]
+  artists   Artist[]
+  directors Director[]
+}
+
+enum Role {
+  ADMIN
+  EDITOR
+}
+
+// ==================== PROJETOS ====================
+
+model Project {
+  id            String     @id @default(cuid())
+  title         String
+  slug          String     @unique
+  excerpt       String?    @db.Text
+  content       String     @db.Text
+  featuredImage String?
+  gallery       String[] // Array de URLs
+  status        PostStatus @default(DRAFT)
+  publishedAt   DateTime?
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  // SEO
+  seoTitle       String?
+  seoDescription String? @db.Text
+  seoKeyword     String? // Palavra-chave foco
+  seoScore       Int? // Score 0-100
+
+  // Relacoes
+  author     User       @relation(fields: [authorId], references: [id])
+  authorId   String
+  categories Category[] @relation("ProjectCategories")
+  tags       Tag[]      @relation("ProjectTags")
+  artists    Artist[]   @relation("ArtistProjects")
+
+  @@index([slug])
+  @@index([status])
+  @@index([publishedAt])
+}
+
+// ==================== ARTISTAS ====================
+
+model Artist {
+  id         String  @id @default(cuid())
+  name       String
+  slug       String  @unique
+  bio        String? @db.Text
+  fullBio    String? @db.Text // Conteudo completo da pagina
+  photo      String?
+  coverImage String?
+  gallery    String[]
+
+  // Redes Sociais
+  instagram String?
+  youtube   String?
+  spotify   String?
+  tiktok    String?
+  facebook  String?
+  twitter   String?
+  website   String?
+
+  // Status
+  featured    Boolean    @default(false)
+  order       Int        @default(0)
+  status      PostStatus @default(DRAFT)
+  publishedAt DateTime?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  // SEO
+  seoTitle       String?
+  seoDescription String? @db.Text
+  seoKeyword     String?
+  seoScore       Int?
+
+  // Relacoes
+  author     User       @relation(fields: [authorId], references: [id])
+  authorId   String
+  categories Category[] @relation("ArtistCategories")
+  tags       Tag[]      @relation("ArtistTags")
+  projects   Project[]  @relation("ArtistProjects")
+
+  @@index([slug])
+  @@index([status])
+  @@index([featured])
+}
+
+// ==================== DIRETORES ====================
+
+model Director {
+  id      String  @id @default(cuid())
+  name    String
+  slug    String  @unique
+  role    String // Cargo: CEO, Diretor Artistico, etc.
+  bio     String? @db.Text
+  fullBio String? @db.Text
+  photo   String?
+
+  // Redes Sociais
+  instagram String?
+  linkedin  String?
+  email     String?
+
+  // Status
+  order       Int        @default(0)
+  status      PostStatus @default(DRAFT)
+  publishedAt DateTime?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  // SEO
+  seoTitle       String?
+  seoDescription String? @db.Text
+  seoKeyword     String?
+  seoScore       Int?
+
+  // Relacoes
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId String
+
+  @@index([slug])
+  @@index([status])
+  @@index([order])
+}
+
+// ==================== CATEGORIAS E TAGS ====================
+
+model Category {
+  id          String       @id @default(cuid())
+  name        String
+  slug        String       @unique
+  description String?      @db.Text
+  type        CategoryType
+  color       String? // Cor hex para UI
+  order       Int          @default(0)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  // Relacoes
+  projects Project[] @relation("ProjectCategories")
+  artists  Artist[]  @relation("ArtistCategories")
+
+  @@index([slug])
+  @@index([type])
+}
+
+enum CategoryType {
+  PROJECT
+  ARTIST
+}
+
+model Tag {
+  id        String   @id @default(cuid())
+  name      String
+  slug      String   @unique
+  createdAt DateTime @default(now())
+
+  // Relacoes
+  projects Project[] @relation("ProjectTags")
+  artists  Artist[]  @relation("ArtistTags")
+
+  @@index([slug])
+}
+
+// ==================== MIDIA ====================
+
+model Media {
+  id           String   @id @default(cuid())
+  filename     String
+  originalName String
+  mimeType     String
+  size         Int // Em bytes
+  url          String
+  alt          String?
+  caption      String?
+  folder       String? // Organizacao em pastas virtuais
+  createdAt    DateTime @default(now())
+
+  @@index([folder])
+  @@index([mimeType])
+}
+
+// ==================== CONFIGURACOES DO SITE ====================
+
+model Setting {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String   @db.Text
+  type      String   @default("string") // string, json, boolean, number
+  updatedAt DateTime @updatedAt
+
+  @@index([key])
+}
+
+// ==================== CONTATOS (Formulario) ====================
+
+model Contact {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String
+  message   String   @db.Text
+  read      Boolean  @default(false)
+  replied   Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([read])
+  @@index([createdAt])
+}
+
+// ==================== ENUMS ====================
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}

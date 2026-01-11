@@ -1,0 +1,9 @@
+// Home Page Components barrel export
+export { Hero } from './Hero'
+export { FeaturedArtists } from './FeaturedArtists'
+export { RecentProjects } from './RecentProjects'
+export { Recognition } from './Recognition'
+export { OurStory } from './OurStory'
+export { CTAContact } from './CTAContact'
+export { ArtistCard } from './ArtistCard'
+export { ProjectCard } from './ProjectCard'
