@@ -45,6 +45,109 @@ export interface FeaturedArtist {
   image: string
 }
 
+// Interfaces para seções flexíveis (Marcelo Portuga)
+export interface ContentSectionBase {
+  id: string
+  background?: 'dark' | 'light'
+}
+
+export interface TextContentSection extends ContentSectionBase {
+  type: 'text'
+  title?: string
+  titleHighlight?: string // parte em script/amarelo
+  paragraphs: string[]
+  subtitle?: string
+}
+
+export interface ImageTextSection extends ContentSectionBase {
+  type: 'imageText'
+  title?: string
+  titleHighlight?: string
+  paragraphs: string[]
+  image: string
+  imagePosition: 'left' | 'right'
+  decorativeImage?: string // imagem decorativa do lado oposto
+}
+
+export interface GalleryWithCaptionsSection extends ContentSectionBase {
+  type: 'galleryWithCaptions'
+  images: { src: string; caption: string }[]
+}
+
+export interface MilestonesSection extends ContentSectionBase {
+  type: 'milestones'
+  title: string
+  image?: string
+  imagePosition?: 'left' | 'right'
+  items: string[]
+  closingText?: string
+}
+
+export interface LogosSection extends ContentSectionBase {
+  type: 'logos'
+  title?: string
+  titleHighlight?: string
+  paragraphs?: string[]
+  logos: { src: string; name: string }[]
+  closingText?: string
+}
+
+export interface FestivalSection extends ContentSectionBase {
+  type: 'festival'
+  title: string
+  titleHighlight: string
+  image: string
+  mainText: string // texto com nomes em negrito usando **nome**
+  additionalParagraphs: string[]
+}
+
+export interface AudiovisualSection extends ContentSectionBase {
+  type: 'audiovisual'
+  title: string
+  paragraphs: string[]
+  images: string[]
+}
+
+export interface SpiritualTurnSection extends ContentSectionBase {
+  type: 'spiritualTurn'
+  title: string
+  image: string
+  introParagraph: string
+  yearTitle: string
+  items: string[]
+}
+
+export interface PartnershipSection extends ContentSectionBase {
+  type: 'partnership'
+  title: string
+  titleHighlight?: string
+  paragraphs: string[]
+  logo?: string
+  hasBottomBorder?: boolean
+}
+
+export interface LegacySection extends ContentSectionBase {
+  type: 'legacy'
+  title: string
+  titleHighlight: string
+  introParagraph: string
+  highlightTitle: string
+  items: string[]
+  closingParagraphs: string[]
+}
+
+export type FlexibleSection =
+  | TextContentSection
+  | ImageTextSection
+  | GalleryWithCaptionsSection
+  | MilestonesSection
+  | LogosSection
+  | FestivalSection
+  | AudiovisualSection
+  | SpiritualTurnSection
+  | PartnershipSection
+  | LegacySection
+
 export interface Director {
   slug: string
   name: string
@@ -73,6 +176,8 @@ export interface Director {
   }
   textSections?: TextSection[]
   featuredArtist?: FeaturedArtist
+  // Seções flexíveis para páginas muito customizadas (Marcelo Portuga)
+  flexibleSections?: FlexibleSection[]
 }
 
 export const directors: Director[] = [
@@ -82,6 +187,7 @@ export const directors: Director[] = [
     role: 'Produtor Executivo - Manager Artístico',
     photo: '/images/directors/marcos-sena-img-home.png',
     instagram: '@marcosascena',
+    backgroundImage: '/images/backgrounds/background-doninha.png',
     shortBio: 'Atuando profissionalmente na indústria da música desde 2006, Marcos Ascena soma quase duas décadas de experiência como produtor executivo, empresário artístico e gestor de projetos musicais, com forte atuação no desenvolvimento, estruturação e execução de projetos culturais e musicais de grande porte no Brasil e no exterior.',
     fullBio: [
       'Ao longo de sua trajetória, Marcos esteve à frente e nos bastidores de produções artísticas complexas, envolvendo gestão de carreira, produção executiva de shows, coordenação de equipes técnicas e criativas, planejamento estratégico, negociações e desenvolvimento de projetos especiais, participando de centenas de shows, além de turnês nacionais e internacionais e gravações de projetos audiovisuais de grande escala, como DVDs, álbuns e registros ao vivo.',
@@ -195,27 +301,205 @@ export const directors: Director[] = [
   {
     slug: 'marcelo-portuga',
     name: 'Marcelo Portuga',
-    role: 'Empresário Artístico - Estrategista de lançamentos',
+    role: 'Executivo criativo, estrategista fonográfico e arquiteto de modelos de negócio musical.',
     photo: '/images/directors/marcelo-portuga-img-home.png',
-    shortBio: 'Empresário artístico e estrategista de lançamentos com experiência em grandes projetos da música brasileira.',
-    fullBio: [
-      'Marcelo Portuga é ex-sócio da KondZilla e traz consigo uma vasta experiência em estratégias de lançamento e posicionamento de artistas no mercado digital.',
-    ],
+    instagram: '@marceloportuga',
+    backgroundImage: '/images/backgrounds/background-doninha.png',
+    shortBio: 'Marcelo Augusto Gonçalves, conhecido profissionalmente como Marcelo Portuga, é um executivo criativo, produtor musical e estrategista fonográfico brasileiro reconhecido por estruturar carreiras, escalar catálogos e transformar movimentos culturais em operações musicais sustentáveis, com atuação no Brasil e no mercado internacional.',
+    fullBio: [],
     gallery: [],
     projects: [],
     partners: [],
     currentRole: {
-      title: 'Atuação Atual',
-      description: [
-        'Na Novidade Urbana, Marcelo Portuga lidera as estratégias de lançamento e posicionamento digital dos artistas.',
-      ],
+      title: '',
+      description: [],
     },
+    statementText: 'Sua trajetória atravessa diferentes ciclos da indústria fonográfica do funk urbano ao gospel contemporâneo sempre orientada por processos industriais, governança, distribuição global, propriedade intelectual e visão de longo prazo.',
+    flexibleSections: [
+      {
+        id: 'formacao-funk',
+        type: 'text',
+        background: 'dark',
+        title: 'A formação de uma visão industrial no funk brasileiro',
+        paragraphs: [
+          'Marcelo Portuga iniciou sua carreira no ambiente do funk paulista, com passagem determinante pela GR6, onde consolidou sua base em gestão artística, produção musical, posicionamento de imagem e dinâmica comercial da música digital.',
+          'Esse período foi fundamental para a construção de sua leitura estratégica da música como indústria escalável, guiada por dados, contratos, distribuição e controle operacional e não apenas como expressão cultural.',
+        ],
+      },
+      {
+        id: 'portuga-records',
+        type: 'text',
+        background: 'dark',
+        title: 'Portuga Records: escala, hits e institucionalização',
+        paragraphs: [
+          'Em 2013, fundou a Portuga Records, gravadora independente voltada à descoberta, desenvolvimento e aceleração de talentos. Sob sua liderança, a empresa estruturou carreiras de artistas que se tornaram protagonistas da música brasileira, como Kevinho, Kekel, Jottapê, MC MM, Dani Russo, MC Hollywood, Tainá Costa, Lexa e MC Guimê.',
+          'Durante esse ciclo, Portuga esteve à frente de projetos que se tornaram marcos históricos da música digital brasileira, entre eles:',
+        ],
+      },
+      {
+        id: 'portuga-records-gallery',
+        type: 'galleryWithCaptions',
+        background: 'dark',
+        images: [
+          { src: '/images/directors/marcelo-portuga/kevinho.jpg', caption: '"Olha a Explosão" : Kevinho (mais de 1 bilhão de visualizações)' },
+          { src: '/images/directors/marcelo-portuga/mc-fioti.jpg', caption: '"Bum Bum Tam Tam" : MC Fioti (aprox. 1,7 bilhão de visualizações)' },
+        ],
+      },
+      {
+        id: 'portuga-records-cont',
+        type: 'text',
+        background: 'dark',
+        paragraphs: [
+          'No auge de sua operação, a Portuga Records mantinha mais de 24 estúdios próprios, operando de forma integrada, o que possibilitou uma produção industrial superior a 500 músicas por mês, com alto giro de lançamentos e domínio total do pipeline criativo.',
+          'Esse modelo de escala, velocidade e controle reposicionou o funk como indústria estruturada e rendeu destaque nacional, incluindo capa da revista Veja, ao evidenciar o gênero como negócio musical consolidado.',
+        ],
+        subtitle: 'Shows, turnês e expansão internacional',
+      },
+      {
+        id: 'shows-turnes',
+        type: 'text',
+        background: 'dark',
+        paragraphs: [
+          'Paralelamente à força digital, Marcelo Portuga liderou a expansão de artistas para grandes palcos e circuitos internacionais, consolidando o funk brasileiro como produto de exportação cultural.',
+        ],
+      },
+      {
+        id: 'principais-marcos',
+        type: 'milestones',
+        background: 'light',
+        title: 'Entre os principais marcos:',
+        image: '/images/directors/marcelo-portuga/show-bandeira.jpg',
+        imagePosition: 'left',
+        items: [
+          'Palco principal da Festa do Peão de Barretos',
+          'Lollapalooza Chile',
+          'Turnês pela Europa, com forte presença em Portugal',
+          'Kevinho realizou mais de 10 turnês em Portugal, estabelecendo presença contínua no mercado europeu.',
+        ],
+        closingText: 'Essa atuação integrou streaming, palco, território, marca e público, ampliando o valor das carreiras além do ambiente digital.',
+      },
+      {
+        id: 'kondzilla-records',
+        type: 'imageText',
+        background: 'light',
+        title: 'Kondzilla Records:',
+        titleHighlight: 'governança, contratos e posicionamento global',
+        paragraphs: [
+          'Em 2017, Marcelo Portuga e Konrad Dantas fundaram a Kondzilla Records, estruturando o braço fonográfico do maior ecossistema de música urbana do país.',
+          'Como cofundador, Portuga teve papel central na criação do modelo de negócio, na governança artística e empresarial e na institucionalização do funk dentro do mercado global, elevando padrões contratuais, artísticos e comerciais.',
+        ],
+        image: '/images/directors/marcelo-portuga/kondzilla-placa.jpg',
+        imagePosition: 'right',
+      },
+      {
+        id: 'marcos-estrategicos',
+        type: 'logos',
+        background: 'light',
+        title: 'Entre os principais marcos estratégicos desse período:',
+        paragraphs: [
+          'Contrato milionário de distribuição global com a The Orchard',
+          'Contrato editorial [publishing] com a Universal Music Publishing Group',
+          'Esses acordos integraram fonograma, distribuição e publishing sob uma lógica profissional de indústria, posicionando a Kondzilla Records em patamar internacional.',
+        ],
+        logos: [
+          { src: '/images/directors/marcelo-portuga/universal-logo.png', name: 'Universal Music Publishing Group' },
+        ],
+      },
+      {
+        id: 'publicidade-licenciamento',
+        type: 'logos',
+        background: 'light',
+        title: 'Publicidade, licenciamento e audiovisual',
+        paragraphs: [
+          'Durante sua atuação na Kondzilla Records, Marcelo Portuga liderou projetos de publicidade, licenciamento e audiovisual com grandes marcas e instituições, incluindo:',
+        ],
+        logos: [
+          { src: '/images/directors/marcelo-portuga/lg-logo.png', name: 'LG' },
+          { src: '/images/directors/marcelo-portuga/casas-bahia-logo.png', name: 'Casas Bahia' },
+          { src: '/images/directors/marcelo-portuga/mcdonalds-logo.png', name: "McDonald's" },
+        ],
+        closingText: 'Músicas do catálogo também foram utilizadas em ações institucionais do Instituto Butantan, durante a pandemia.',
+      },
+      {
+        id: 'kondzilla-festival',
+        type: 'festival',
+        background: 'dark',
+        title: 'KondZilla',
+        titleHighlight: 'Festival',
+        image: '/images/directors/marcelo-portuga/kondzilla-festival.jpg',
+        mainText: 'O KondZilla Festival no Sambódromo do Anhembi aconteceu em 19 de novembro de 2019, sendo um grande evento de estreia que reuniu diversos nomes do funk e do pop, como **Kevin O Chris, Léo Santana, Lexa, Kevinho e o próprio Alok**, no pavilhão coberto do Anhembi, celebrando a nova geração da música brasileira com mais de 10 horas de shows.',
+        additionalParagraphs: [
+          'Foi a primeira edição do festival, organizado pelo produtor KondZilla, conhecido pelo maior canal de música do YouTube.',
+          'O evento marcou a união de artistas do funk e outros gêneros no mesmo palco, segundo noticiado na época pelo Metrópoles e pela Veja SP.',
+          'Embora o evento tenha sido em 2019, a busca pode ter vindo de interesse em edições futuras ou do histórico do festival.',
+        ],
+      },
+      {
+        id: 'audiovisual',
+        type: 'audiovisual',
+        background: 'dark',
+        title: 'Audiovisual',
+        paragraphs: [
+          'No audiovisual, artistas da gravadora participaram de **produções originais da Netflix**, com contratos formais assinados, incluindo as **séries Sintonia e DNA do Crime**.',
+        ],
+        images: [
+          '/images/directors/marcelo-portuga/sintonia.jpg',
+          '/images/directors/marcelo-portuga/dna-do-crime.jpg',
+        ],
+      },
+      {
+        id: 'virada-espiritual',
+        type: 'spiritualTurn',
+        background: 'dark',
+        title: 'Virada espiritual, propósito e reconhecimento internacional',
+        image: '/images/directors/marcelo-portuga/marcelo-virada.jpg',
+        introParagraph: 'Após a perda de seu pai, Marcelo Portuga viveu uma experiência espiritual profunda que resultou em sua conversão ao cristianismo evangélico e em uma reavaliação estratégica de sua atuação na indústria musical.',
+        yearTitle: 'Em 2024:',
+        items: [
+          'Realizou a venda da Portuga Records, encerrando seu ciclo no funk secular;',
+          'Foi vencedor do Grammy, ao lado de Thalles Roberto, com premiação recebida em 14 de novembro de 2024.',
+        ],
+      },
+      {
+        id: 'novidade-urbana-ahsa',
+        type: 'partnership',
+        background: 'dark',
+        title: 'Novidade Urbana e AHSA Music:',
+        titleHighlight: 'gospel em escala global',
+        paragraphs: [
+          'Após essa transição, fundou a Novidade Urbana e tornou-se sócio da AHSA Music, com operação no Brasil e nos Estados Unidos.',
+          'No mercado americano, fechou contrato de distribuição com a Virgin Music.',
+          'O casting inclui Clóvis Pinho, Emanuelles, além do projeto Marcados e do projeto infantil cristão Turma da Capivara, voltado ao público infantil, com proposta educativa e multiplataforma.',
+        ],
+        logo: '/images/directors/marcelo-portuga/ahsa-logo.png',
+        hasBottomBorder: true,
+      },
+      {
+        id: 'tese-legado',
+        type: 'legacy',
+        background: 'dark',
+        title: 'Tese executiva e',
+        titleHighlight: 'Legado',
+        introParagraph: 'Marcelo Portuga não opera lançamentos opera sistemas.',
+        highlightTitle: 'Seu diferencial está em:',
+        items: [
+          'Escalar produção e catálogo em nível industrial;',
+          'Negociar contratos estruturantes;',
+          'Transformar artistas em marcas globais;',
+          'Alinhar fé, mercado, governança e impacto cultural.',
+        ],
+        closingParagraphs: [
+          'Do funk ao gospel, sua trajetória é marcada por reinvenção estratégica, execução comprovada e visão de longo prazo.',
+          'Quando Marcelo Portuga entra em um projeto, a indústria presta atenção porque estruturas são construídas e mercados se movem.',
+        ],
+      },
+    ],
   },
   {
     slug: 'fabio-principe',
     name: 'Fabio príncipe',
     role: 'Empresário e produtor artístico',
-    photo: '/images/directors/fabio-principe-img-home.jpg',
+    photo: '/images/directors/fabio-principe-img-home-nova.png',
     instagram: '@fabiouniverso',
     backgroundImage: '/images/backgrounds/background-doninha.png',
     shortBio: 'Empresário e produtor artístico com mais de 20 anos de experiência em negócios, cultura e entretenimento, especializado em produção musical, estratégia corporativa e gestão cultural de grande escala. Reconhecido internacionalmente por sua atuação como produtor e empresário do cantor Thalles Roberto, vencedor do Grammy Latino 2024 de Melhor Álbum Gospel, e por ser o responsável pelo impulsionamento da carreira do cantor Victin, maior artista de trap gospel no Brasil, além da gestão do grupo Marcados [Pagode Gospel], o maior do ritmo na América Latina.',

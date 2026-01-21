@@ -12,6 +12,7 @@ import {
   DirectorHighlightProjects,
   DirectorTextSections,
   DirectorFeaturedArtist,
+  DirectorFlexibleSections,
 } from '@/components/directors'
 import { getDirectorBySlug, getAllDirectorSlugs } from '@/data/directors'
 
@@ -50,15 +51,16 @@ export default async function DirectorPage({ params }: DirectorPageProps) {
     notFound()
   }
 
-  // Verifica se é uma página customizada (Fábio Príncipe)
-  const hasCustomLayout = director.timeline || director.highlightProjects
+  // Verifica o tipo de layout customizado
+  const hasFabioLayout = director.timeline || director.highlightProjects
+  const hasFlexibleLayout = director.flexibleSections && director.flexibleSections.length > 0
 
   return (
     <PublicLayout>
       <div
         className="relative"
         style={{
-          backgroundImage: director.backgroundImage
+          backgroundImage: director.backgroundImage && !hasFlexibleLayout
             ? `url(${director.backgroundImage})`
             : undefined,
           backgroundSize: 'cover',
@@ -66,9 +68,28 @@ export default async function DirectorPage({ params }: DirectorPageProps) {
           backgroundAttachment: 'fixed',
         }}
       >
-        <DirectorHero director={director} />
+        {/* Hero com background para Marcelo */}
+        {hasFlexibleLayout ? (
+          <div
+            style={{
+              backgroundImage: director.backgroundImage
+                ? `url(${director.backgroundImage})`
+                : undefined,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundAttachment: 'fixed',
+            }}
+          >
+            <DirectorHero director={director} />
+            <DirectorStatement director={director} />
+          </div>
+        ) : (
+          <DirectorHero director={director} />
+        )}
 
-        {hasCustomLayout ? (
+        {hasFlexibleLayout ? (
+          <DirectorFlexibleSections director={director} />
+        ) : hasFabioLayout ? (
           <>
             <DirectorStatement director={director} />
             <DirectorTimeline director={director} />
