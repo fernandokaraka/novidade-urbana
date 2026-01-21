@@ -22,6 +22,7 @@ export interface ArtistData {
   slug: string
   name: string
   bio: string[] // Array de parágrafos
+  highlightedBio?: string // Parágrafo com fundo amarelo
   photo: string
   photoAlt?: string
   socialLinks: SocialLinks
