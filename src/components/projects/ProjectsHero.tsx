@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 
 const recognitionItems = [
@@ -8,26 +9,31 @@ const recognitionItems = [
     title: 'Grammy',
     description: 'Thalles Roberto teve seu trabalho reconhecido internacionalmente com indicação ao Grammy Latino, um dos prêmios mais importantes da música mundial.',
     photo: '/images/projects/grammy-card-home-background.png',
+    slug: 'grammy-latino',
   },
   {
     title: 'Reveillon 2026',
     description: 'Título de Maior Reveillon do Mundo',
     photo: '/images/projects/reveillon-2026-home-card-bg.png',
+    slug: 'reveillon-2026',
   },
   {
     title: 'Feat. Jorge',
     description: 'Encontro poderoso entre vocês e propósito Cristo',
     photo: '/images/projects/feat-jorge-card-home-bg.png',
+    slug: 'feat-jorge',
   },
   {
     title: 'Av. do Arrependimento',
     description: 'Produção Dudu Borges',
     photo: '/images/projects/av-do-arrependimento-card-home-bg.png',
+    slug: 'feat-jorge',
   },
   {
     title: 'DEUS GRANDE',
     description: 'Marcelo Aguiar',
     photo: '/images/projects/deus-grande-card-home-bg.png',
+    slug: 'deus-grande',
   }
 ]
 
@@ -73,96 +79,98 @@ export function ProjectsHero() {
         <div className="grid lg:grid-cols-[70%_30%] gap-6 mb-12">
           {/* Large Cards */}
           {recognitionItems.slice(0, 2).map((item, index) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="relative overflow-hidden rounded-2xl"
-              style={{ height: '744px' }}
-            >
-              <Image
-                src={item.photo}
-                alt={item.title}
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                <h3
-                  className="mb-3"
-                  style={{
-                    fontFamily: 'var(--font-tt-runs)',
-                    fontSize: '32px',
-                    fontWeight: 700,
-                    lineHeight: '38px',
-                    letterSpacing: '-0.02em'
-                  }}
-                >
-                  {item.title}
-                </h3>
-                <p
-                  style={{
-                    fontFamily: 'var(--font-tt-runs)',
-                    fontSize: '16px',
-                    fontWeight: 400,
-                    lineHeight: '24px',
-                    letterSpacing: '0'
-                  }}
-                >
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
+            <Link key={item.title} href={`/projetos/${item.slug}`}>
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="relative overflow-hidden rounded-2xl cursor-pointer group"
+                style={{ height: '744px' }}
+              >
+                <Image
+                  src={item.photo}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                  <h3
+                    className="mb-3"
+                    style={{
+                      fontFamily: 'var(--font-tt-runs)',
+                      fontSize: '32px',
+                      fontWeight: 700,
+                      lineHeight: '38px',
+                      letterSpacing: '-0.02em'
+                    }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-tt-runs)',
+                      fontSize: '16px',
+                      fontWeight: 400,
+                      lineHeight: '24px',
+                      letterSpacing: '0'
+                    }}
+                  >
+                    {item.description}
+                  </p>
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
 
         {/* Small Cards Row */}
         <div className="grid lg:grid-cols-3 gap-6 mb-8">
           {recognitionItems.slice(2).map((item, index) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: (index + 2) * 0.1 }}
-              className="relative overflow-hidden rounded-2xl"
-              style={{ height: '358px' }}
-            >
-              <Image
-                src={item.photo}
-                alt={item.title}
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <h3
-                  className="mb-2"
-                  style={{
-                    fontFamily: 'var(--font-tt-runs)',
-                    fontSize: '24px',
-                    fontWeight: 700,
-                    lineHeight: '29px',
-                    letterSpacing: '-0.02em'
-                  }}
-                >
-                  {item.title}
-                </h3>
-                <p
-                  style={{
-                    fontFamily: 'var(--font-tt-runs)',
-                    fontSize: '14px',
-                    fontWeight: 400,
-                    lineHeight: '21px',
-                    letterSpacing: '0'
-                  }}
-                >
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
+            <Link key={item.title} href={`/projetos/${item.slug}`}>
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: (index + 2) * 0.1 }}
+                className="relative overflow-hidden rounded-2xl cursor-pointer group"
+                style={{ height: '358px' }}
+              >
+                <Image
+                  src={item.photo}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <h3
+                    className="mb-2"
+                    style={{
+                      fontFamily: 'var(--font-tt-runs)',
+                      fontSize: '24px',
+                      fontWeight: 700,
+                      lineHeight: '29px',
+                      letterSpacing: '-0.02em'
+                    }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-tt-runs)',
+                      fontSize: '14px',
+                      fontWeight: 400,
+                      lineHeight: '21px',
+                      letterSpacing: '0'
+                    }}
+                  >
+                    {item.description}
+                  </p>
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
 

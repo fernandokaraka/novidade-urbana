@@ -1,30 +1,9 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
-
-const directors = [
-  {
-    name: 'Doninha',
-    role: 'Produtor de eventos e empresário artístico',
-    photo: '/images/directors/doninho-img-home.jpg',
-  },
-  {
-    name: 'Marcos Ascena',
-    role: 'Produtor Executivo- Manager Artístico',
-    photo: '/images/directors/marcos-sena-img-home.png',
-  },
-  {
-    name: 'Marcelo Portuga',
-    role: 'Empresário Artístico - Estrategista de lançamentos',
-    photo: '/images/directors/marcelo-portuga-img-home.png',
-  },
-  {
-    name: 'Fábio Principe',
-    role: 'Diretor Financeiro',
-    photo: '/images/directors/fabio-principe-img-home.jpg',
-  },
-]
+import { directors } from '@/data/directors'
 
 export function PartnersHero() {
   return (
@@ -67,51 +46,52 @@ export function PartnersHero() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-8">
           {directors.map((director, index) => (
             <motion.div
-              key={director.name}
+              key={director.slug}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               className="text-center"
             >
-              {/* Photo */}
-              <div className="relative w-full overflow-hidden mb-6" style={{ height: '450px', borderRadius: '16px' }}>
-                <Image
-                  src={director.photo}
-                  alt={director.name}
-                  fill
-                  className="object-cover object-top"
-                />
-              </div>
+              <Link href={`/diretores/${director.slug}`} className="block group">
+                {/* Photo */}
+                <div className="relative w-full overflow-hidden mb-6 transition-transform duration-300 group-hover:scale-[1.02]" style={{ height: '450px', borderRadius: '16px' }}>
+                  <Image
+                    src={director.photo}
+                    alt={director.name}
+                    fill
+                    className="object-cover object-top"
+                  />
+                </div>
 
-              {/* Name */}
-              <h3
-                style={{
-                  fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '24px',
-                  fontWeight: 700,
-                  lineHeight: '28px',
-                  letterSpacing: '0',
-                  color: '#FFFFFF',
-                }}
-                className="mb-2"
-              >
-                {director.name}
-              </h3>
+                {/* Name */}
+                <h3
+                  style={{
+                    fontFamily: 'var(--font-tt-runs)',
+                    fontSize: '24px',
+                    fontWeight: 700,
+                    lineHeight: '28px',
+                    letterSpacing: '0',
+                  }}
+                  className="mb-2 text-white group-hover:text-brand-yellow transition-colors"
+                >
+                  {director.name}
+                </h3>
 
-              {/* Role */}
-              <p
-                style={{
-                  fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '14px',
-                  fontWeight: 400,
-                  lineHeight: '20px',
-                  letterSpacing: '0',
-                  color: '#CCCCCC',
-                }}
-              >
-                {director.role}
-              </p>
+                {/* Role */}
+                <p
+                  style={{
+                    fontFamily: 'var(--font-tt-runs)',
+                    fontSize: '14px',
+                    fontWeight: 400,
+                    lineHeight: '20px',
+                    letterSpacing: '0',
+                    color: '#CCCCCC',
+                  }}
+                >
+                  {director.role}
+                </p>
+              </Link>
             </motion.div>
           ))}
         </div>
