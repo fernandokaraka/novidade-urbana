@@ -69,7 +69,7 @@ export const artistsData: ArtistData[] = [
       'Marcelo Aguiar é cantor, compositor e uma das vozes mais marcantes do gospel nacional, reconhecido por sua trajetória à frente da banda Katsbarnea e por sua forte identidade no rock cristão brasileiro. Sua música sempre esteve ligada a mensagens diretas, intensidade espiritual e compromisso com a fé.'
     ],
     highlightedBio: 'Ao longo de sua carreira, Marcelo construiu um legado de autenticidade e impacto, influenciando gerações e mantendo uma presença sólida no cenário gospel por meio de projetos relevantes, testemunho pessoal e canções que comunicam transformação e esperança.',
-    photo: '/images/artists/marcelo-aguiar-individual.png',
+    photo: '/images/artists/marcelo-aguiar-home.png',
     photoAlt: 'Marcelo Aguiar',
     socialLinks: {
       instagram: '@marceloaguiaroficial',
