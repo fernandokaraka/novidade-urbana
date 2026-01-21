@@ -479,6 +479,23 @@ function DefaultHeroSection({ artist }: { artist: ArtistData }) {
                 </p>
               ))}
             </div>
+
+            {/* Parágrafo destacado com fundo amarelo */}
+            {artist.highlightedBio && (
+              <div
+                className="mt-6 p-4"
+                style={{
+                  backgroundColor: '#FCFF00',
+                  fontFamily: 'var(--font-tt-runs)',
+                  fontSize: '20px',
+                  fontWeight: 400,
+                  lineHeight: '1.6',
+                  color: '#000000'
+                }}
+              >
+                {artist.highlightedBio}
+              </div>
+            )}
           </motion.div>
         </div>
       </div>
