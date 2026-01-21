@@ -1,14 +1,42 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { slideInLeft, slideInRight } from '@/lib/animations'
+
+const heroImages = [
+  {
+    src: '/images/hero/vencedor-do-grammy-hero-home.png',
+    alt: 'Thalles Roberto - Vencedor do Grammy',
+    offsetY: '0',
+  },
+  {
+    src: '/images/hero/marcados-hero-home.png',
+    alt: 'Marcados',
+    offsetY: '-80px', // Mais para cima
+  },
+  {
+    src: '/images/hero/marcelo-aguiar-hero-home.png',
+    alt: 'Marcelo Aguiar',
+    offsetY: '0',
+  },
+]
 
 export function Hero() {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  // Auto-rotate carousel every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % heroImages.length)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [])
+
   return (
-    <section className="relative bg-black min-h-screen overflow-hidden">
-      {/* Background Elements */}
+    <section className="relative bg-black min-h-[100svh] overflow-hidden">
+      {/* Background Texture */}
       <div className="absolute inset-0">
         <Image
           src="/images/hero/hero-home-background.png"
@@ -19,72 +47,84 @@ export function Hero() {
         />
       </div>
 
-      {/* Grammy Image - Mobile Version */}
-      <div className="absolute inset-0 lg:hidden">
-        <Image
-          src="/images/hero/vencedor-do-grammy-hero-home.png"
-          alt="Vencedor Grammy"
-          fill
-          className="object-contain object-bottom"
-          style={{ objectPosition: 'bottom center' }}
-          priority
-        />
-      </div>
-
-      <div className="container-site relative z-10 h-full min-h-screen flex items-start lg:items-center px-4">
-        <div className="grid lg:grid-cols-2 gap-12 w-full pb-16 lg:pb-32 pt-44 lg:pt-0">
-          {/* Text Content */}
+      <div className="container-site relative z-10 min-h-[100svh] px-4">
+        <div className="relative lg:min-h-screen">
+          {/* Text Content - Left Side */}
           <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={slideInLeft}
-            className="text-left"
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col justify-start lg:justify-end pt-36 lg:pt-0 pb-[45vh] lg:pb-48 lg:min-h-screen max-w-xl"
           >
             {/* Main Headline */}
-            <h1 className="mb-6 lg:mb-12">
+            <h1 className="mb-8">
               <span
-                className="block lg:inline text-brand-yellow text-[36px] lg:text-[48px]"
+                className="block text-brand-yellow"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
                   fontWeight: 700,
-                  lineHeight: '1.15',
+                  fontSize: 'clamp(28px, 5vw, 48px)',
+                  lineHeight: '1.1',
                   letterSpacing: '-0.02em',
                 }}
               >
-                Gestão e agenciamento artístico{' '}
+                Gestão e agenciamento
               </span>
               <span
-                className="block lg:inline text-white text-[30px] lg:text-[48px]"
+                className="block text-brand-yellow"
+                style={{
+                  fontFamily: 'var(--font-tt-runs)',
+                  fontWeight: 700,
+                  fontSize: 'clamp(28px, 5vw, 48px)',
+                  lineHeight: '1.1',
+                  letterSpacing: '-0.02em',
+                }}
+              >
+                artístico{' '}
+                <span
+                  className="text-white"
+                  style={{
+                    fontWeight: 400,
+                  }}
+                >
+                  com
+                </span>
+              </span>
+              <span
+                className="block text-white"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
                   fontWeight: 400,
-                  lineHeight: '1.15',
+                  fontSize: 'clamp(28px, 5vw, 48px)',
+                  lineHeight: '1.1',
                   letterSpacing: '-0.02em',
                 }}
               >
-                com reconhecimento{' '}
+                reconhecimento
               </span>
               <span
-                className="block lg:inline text-brand-yellow text-[56px] lg:text-[64px]"
+                className="block text-white"
                 style={{
                   fontFamily: 'var(--font-yellowtail)',
                   fontWeight: 400,
-                  lineHeight: '1.15',
+                  fontSize: 'clamp(48px, 8vw, 80px)',
+                  lineHeight: '0.9',
                   letterSpacing: '-0.02em',
+                  marginTop: '-10px',
                 }}
               >
                 internacional
               </span>
             </h1>
 
-            {/* CTAs */}
-            <div className="flex flex-row flex-wrap gap-6 lg:gap-6">
+            {/* Navigation Links */}
+            <div className="flex flex-row gap-8">
               <Link
                 href="/agenciamento"
                 className="text-white hover:text-brand-yellow transition-colors"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
-                  fontWeight: 300,
+                  fontWeight: 400,
                   fontSize: '16px',
                   lineHeight: '1.5',
                   letterSpacing: '-0.02em'
@@ -97,7 +137,7 @@ export function Hero() {
                 className="text-white hover:text-brand-yellow transition-colors"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
-                  fontWeight: 300,
+                  fontWeight: 400,
                   fontSize: '16px',
                   lineHeight: '1.5',
                   letterSpacing: '-0.02em'
@@ -110,7 +150,7 @@ export function Hero() {
                 className="text-white hover:text-brand-yellow transition-colors"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
-                  fontWeight: 300,
+                  fontWeight: 400,
                   fontSize: '16px',
                   lineHeight: '1.5',
                   letterSpacing: '-0.02em'
@@ -121,50 +161,30 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* Image with Grammy Badge - Desktop Only */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={slideInRight}
-            className="relative hidden lg:block"
-            style={{
-              position: 'absolute',
-              right: '0',
-              top: '80px',
-              width: '50%',
-              height: 'calc(100% - 80px)',
-              zIndex: 10
-            }}
-          >
-            <Image
-              src="/images/hero/vencedor-do-grammy-hero-home.png"
-              alt="Vencedor Grammy"
-              fill
-              className="object-contain object-bottom"
-              style={{ objectPosition: 'bottom center' }}
-              priority
-            />
-          </motion.div>
+          {/* Image Carousel - Right Side */}
+          <div className="absolute -bottom-44 lg:-bottom-12 right-0 w-full lg:w-[55%] h-[75vh] lg:h-[95vh]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.8 }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={heroImages[currentIndex].src}
+                  alt={heroImages[currentIndex].alt}
+                  fill
+                  className="object-contain object-bottom"
+                  style={{ transform: `translateY(${heroImages[currentIndex].offsetY})` }}
+                  priority
+                />
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
       </div>
-
-      {/* Desktop Version - Maintain original layout */}
-      <style jsx>{`
-        @media (min-width: 1024px) {
-          h1 span {
-            display: inline !important;
-          }
-          h1 span:first-child {
-            font-size: 48px !important;
-          }
-          h1 span:nth-child(2) {
-            font-size: 48px !important;
-          }
-          h1 span:last-child {
-            font-size: 64px !important;
-          }
-        }
-      `}</style>
     </section>
   )
 }

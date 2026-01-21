@@ -43,20 +43,22 @@ export function AboutHero() {
             {/* Title */}
             <h1 className="mb-6 lg:mb-8">
               <span
-                className="block text-white text-[32px] lg:text-[48px]"
+                className="block text-white"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
-                  fontWeight: 700,
+                  fontSize: '60px',
+                  fontWeight: 400,
                   lineHeight: '1.1',
                   letterSpacing: '-0.02em',
                 }}
               >
                 A{' '}
                 <span
-                  className="text-brand-yellow"
                   style={{
                     fontFamily: 'var(--font-yellowtail)',
+                    fontSize: '96px',
                     fontWeight: 400,
+                    color: '#FCFF00',
                   }}
                 >
                   história
@@ -64,10 +66,11 @@ export function AboutHero() {
                 {' '}da
               </span>
               <span
-                className="block text-white text-[32px] lg:text-[48px]"
+                className="block text-white"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
-                  fontWeight: 700,
+                  fontSize: '60px',
+                  fontWeight: 400,
                   lineHeight: '1.1',
                   letterSpacing: '-0.02em',
                 }}
@@ -78,15 +81,16 @@ export function AboutHero() {
 
             {/* Description */}
             <p
-              className="text-white mb-8 max-w-lg"
+              className="mb-8 max-w-lg"
               style={{
                 fontFamily: 'var(--font-tt-runs)',
-                fontSize: '16px',
+                fontSize: '20px',
                 fontWeight: 400,
                 lineHeight: '1.6',
+                color: '#FFFFFF',
               }}
             >
-              <span className="text-brand-yellow font-bold">A Novidade Urbana</span> é um selo e produtora gospel que surgiu
+              <span style={{ color: '#FCFF00', fontWeight: 700 }}>A Novidade Urbana</span> é um selo e produtora gospel que surgiu
               como uma plataforma estruturada para apoiar e promover artistas
               cristãos, com foco em profissionalização, lançamentos e projetos
               colaborativos dentro da música gospel contemporânea.
@@ -126,30 +130,14 @@ export function AboutHero() {
             variants={slideInRight}
             className="flex justify-center lg:justify-end"
           >
-            <div className="relative w-[280px] h-[320px] lg:w-[400px] lg:h-[450px]">
+            <div className="relative w-[280px] h-[320px] lg:w-[450px] lg:h-[500px]">
               <Image
-                src="/images/logo/logo-novidade-urbana-amarelo-notext.svg"
+                src="/images/about/logo-novidade-urbana-amarelo.png"
                 alt="Novidade Urbana"
                 fill
                 className="object-contain"
                 priority
               />
-              {/* Text below logo */}
-              <div
-                className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-center"
-                style={{
-                  fontFamily: 'var(--font-tt-runs)',
-                  fontWeight: 900,
-                  fontSize: '32px',
-                  lineHeight: '1',
-                  letterSpacing: '0.05em',
-                  color: '#FCFF00',
-                }}
-              >
-                NOVIDADE
-                <br />
-                URBANA
-              </div>
             </div>
           </motion.div>
         </div>

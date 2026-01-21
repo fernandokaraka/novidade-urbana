@@ -76,6 +76,7 @@ export function ArtistsHero() {
                 alt={featuredArtists[0].name}
                 fill
                 className="object-cover"
+                style={{ objectPosition: 'center 30%' }}
               />
             </div>
             <div className="text-white">
@@ -166,6 +167,7 @@ export function ArtistsHero() {
                   alt={featuredArtists[2].name}
                   fill
                   className="object-cover"
+                  style={{ objectPosition: 'center 40px' }}
                 />
               </div>
               <div className="text-white">

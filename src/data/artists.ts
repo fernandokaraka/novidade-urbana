@@ -16,6 +16,7 @@ export interface AchievementBlock {
   highlights?: string[] // Palavras/frases a destacar em amarelo
   image: string
   imageAlt: string
+  imageAlignment?: 'bottom' | 'center' // default: bottom
 }
 
 export interface ArtistData {
@@ -82,8 +83,9 @@ export const artistsData: ArtistData[] = [
         title: 'Deus Grande',
         titleStyle: 'bold',
         text: '"Escolhemos essa música por trazer uma forte mensagem sobre a importância de levar a palavra de Deus e sua mensagem de fé e perseverança; a música já está sendo cantada nas igrejas em seus grupos de louvores, esse é nosso maior termômetro da força que ela tem de elevar e emocionar as pessoas", conta Marcelo.',
-        image: '/images/artists/deus-e-grande-individual-img-1.png',
-        imageAlt: 'Capa do single Deus Grande'
+        image: '/images/artists/deus-grande-secao-2.png',
+        imageAlt: 'Capa do single Deus Grande',
+        imageAlignment: 'center'
       }
     ]
   },

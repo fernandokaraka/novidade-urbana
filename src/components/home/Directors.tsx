@@ -23,7 +23,7 @@ const directors = [
   {
     name: 'Fábio Principe',
     role: 'Diretor Financeiro',
-    photo: '/images/directors/fabio-principe-img-home.jpg',
+    photo: '/images/directors/fabio-principe-img-home-nova.png',
   },
 ]
 

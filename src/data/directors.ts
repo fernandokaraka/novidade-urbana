@@ -626,14 +626,6 @@ export const directors: Director[] = [
         ],
       },
     ],
-    featuredArtist: {
-      name: 'Marcados',
-      description: [
-        'Marcados é um grupo gospel que expressa fé, entrega e identidade cristã por meio de canções intensas e cheias de propósito. Seu som une adoração contemporânea e mensagem profunda, criando uma conexão verdadeira com o público.',
-        'Os integrantes do grupo de pagode gospel Marcados incluem Gil nos vocais, Wendell no cavaco, Léo na bateria, Edson no surdo, Dio no pandeiro, Triguinho no reco-reco, Aleks nos teclados, Brizola no baixo, Bahia na guitarra e Igor no tantan, com Luizinho no tambu, sendo um grupo que leva mensagens de fé através do pagode, surgindo de inspirações do gênero secular, mas focado no cristão.',
-      ],
-      image: '/images/directors/fabio-principe/marcados-grupo.jpg',
-    },
   },
 ]
 

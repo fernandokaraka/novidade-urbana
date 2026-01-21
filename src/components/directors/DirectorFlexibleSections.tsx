@@ -385,7 +385,7 @@ function LogosSectionComponent({ section }: { section: LogosSection }) {
       ))}
       <div className="flex items-center justify-between my-8">
         {section.logos.map((logo, i) => (
-          <Image key={i} src={logo.src} alt={logo.name} width={150} height={80} className="object-cover w-[33%]" />
+          <Image key={i} src={logo.src} alt={logo.name} width={180} height={80} className="object-contain h-[60px] lg:h-[80px]" />
         ))}
       </div>
       {section.closingText && (

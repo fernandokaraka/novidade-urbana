@@ -95,8 +95,8 @@ export function Recognition() {
 
         {/* Grid Layout */}
         <div className="mb-12">
-          {/* First Row - 70/30 split */}
-          <div className="grid gap-6 mb-6" style={{ gridTemplateColumns: '7fr 3fr' }}>
+          {/* First Row - 70/30 split on desktop, stacked on mobile */}
+          <div className="grid grid-cols-1 lg:grid-cols-[7fr_3fr] gap-6 mb-6">
             {recognitionItems.slice(0, 2).map((item, index) => (
               <motion.div
                 key={item.title}
@@ -104,8 +104,7 @@ export function Recognition() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="relative overflow-hidden rounded-2xl"
-                style={{ height: '744px' }}
+                className="relative overflow-hidden rounded-2xl h-[400px] lg:h-[744px]"
               >
                 <Image
                   src={item.photo}
@@ -143,8 +142,8 @@ export function Recognition() {
             ))}
           </div>
 
-          {/* Second Row - 3 equal columns */}
-          <div className="grid gap-6" style={{ gridTemplateColumns: '1fr 1fr 1fr' }}>
+          {/* Second Row - 3 equal columns on desktop, stacked on mobile */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {recognitionItems.slice(2).map((item, index) => (
             <motion.div
               key={item.title}
@@ -152,8 +151,7 @@ export function Recognition() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: (index + 2) * 0.1 }}
-              className="relative overflow-hidden rounded-2xl"
-              style={{ height: '358px' }}
+              className="relative overflow-hidden rounded-2xl h-[300px] md:h-[358px]"
             >
               <Image
                 src={item.photo}

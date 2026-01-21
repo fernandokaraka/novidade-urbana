@@ -28,7 +28,7 @@ const featuredArtists = [
 
 export function FeaturedArtists() {
   return (
-    <section className="relative py-16 lg:py-24 overflow-hidden bg-black" style={{ minHeight: '1200px' }}>
+    <section className="relative py-16 lg:py-24 overflow-hidden bg-black min-h-[800px] lg:min-h-[1200px]">
       {/* Background Texture - Full section */}
       <div className="absolute inset-0" style={{ top: '-120px', height: 'calc(100% + 120px)' }}>
         <Image
@@ -81,12 +81,13 @@ export function FeaturedArtists() {
           viewport={{ once: true }}
           className="mb-8"
         >
-          <div className="relative overflow-hidden rounded-2xl mb-4" style={{ height: '400px' }}>
+          <div className="relative overflow-hidden rounded-2xl mb-4 h-[280px] md:h-[400px]">
             <Image
               src={featuredArtists[0].photo}
               alt={featuredArtists[0].name}
               fill
               className="object-cover"
+              style={{ objectPosition: 'center 30%' }}
             />
           </div>
           <div className="text-white">
@@ -126,7 +127,7 @@ export function FeaturedArtists() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <div className="relative overflow-hidden rounded-2xl bg-white mb-4" style={{ height: '300px' }}>
+            <div className="relative overflow-hidden rounded-2xl bg-white mb-4 h-[250px] md:h-[300px]">
               <Image
                 src={featuredArtists[1].photo}
                 alt={featuredArtists[1].name}
@@ -168,12 +169,13 @@ export function FeaturedArtists() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <div className="relative overflow-hidden rounded-2xl bg-white mb-4" style={{ height: '300px' }}>
+            <div className="relative overflow-hidden rounded-2xl bg-white mb-4 h-[250px] md:h-[300px]">
               <Image
                 src={featuredArtists[2].photo}
                 alt={featuredArtists[2].name}
                 fill
                 className="object-cover"
+                style={{ objectPosition: 'center 40px' }}
               />
             </div>
             <div className="text-white">

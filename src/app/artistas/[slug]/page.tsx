@@ -123,21 +123,22 @@ function AchievementSection({ achievement, imagePosition = 'right' }: { achievem
             </motion.div>
           </div>
 
-          {/* Coluna da imagem - sem padding inferior para tocar o footer */}
+          {/* Coluna da imagem */}
           <motion.div
             initial={{ opacity: 0, x: isImageRight ? 30 : -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className={`flex-1 self-end hidden lg:block ${isImageRight ? 'order-2' : 'order-1'}`}
+            className={`flex-1 hidden lg:flex ${achievement.imageAlignment === 'center' ? 'items-center' : 'items-end'} ${isImageRight ? 'order-2' : 'order-1'}`}
           >
-            <Image
-              src={achievement.image}
-              alt={achievement.imageAlt}
-              width={500}
-              height={500}
-              className="w-full h-auto"
-              quality={100}
-            />
+            <div className="relative w-full h-[450px]">
+              <Image
+                src={achievement.image}
+                alt={achievement.imageAlt}
+                fill
+                className="object-contain"
+                quality={100}
+              />
+            </div>
           </motion.div>
         </div>
       </div>
@@ -472,7 +473,7 @@ function DefaultHeroSection({ artist }: { artist: ArtistData }) {
                     fontSize: '20px',
                     fontWeight: 400,
                     lineHeight: '1.6',
-                    color: '#FFFFFF'
+                    color: '#94969C'
                   }}
                 >
                   {paragraph}

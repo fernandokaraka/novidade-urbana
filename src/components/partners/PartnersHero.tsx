@@ -8,42 +8,53 @@ import { directors } from '@/data/directors'
 export function PartnersHero() {
   return (
     <section className="relative pt-32 lg:pt-40 pb-16 lg:pb-24 overflow-hidden bg-black">
-      <div className="container-site relative z-10 px-4 max-w-2xl mx-auto">
+      {/* Background Texture */}
+      <div className="absolute inset-0 opacity-40">
+        <Image
+          src="/images/backgrounds/bg-diretores-home.png"
+          alt=""
+          fill
+          quality={100}
+          className="object-cover"
+        />
+      </div>
+
+      <div className="container-site relative z-10 px-4">
         {/* Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-12 text-center"
+          className="text-center mb-12 lg:mb-16"
+          style={{ lineHeight: '1.1' }}
         >
-          <h2 style={{ lineHeight: '1.1' }}>
-            <span
-              className="text-[3rem] lg:text-[112px]"
-              style={{
-                fontFamily: 'var(--font-yellowtail)',
-                fontWeight: 400,
-                letterSpacing: '-0.02em',
-                color: '#FCFF00'
-              }}
-            >
-              Sócios
-            </span>
-            <span
-              className="text-[2.25rem] lg:text-[76.93px]"
-              style={{
-                fontFamily: 'var(--font-tt-runs)',
-                fontWeight: 700,
-                letterSpacing: '-0.02em',
-                color: '#FFFFFF'
-              }}
-            >
-              {' '}- Diretores
-            </span>
-          </h2>
-        </motion.div>
+          <span
+            className="text-[48px] lg:text-[112px]"
+            style={{
+              fontFamily: 'var(--font-yellowtail)',
+              fontWeight: 400,
+              letterSpacing: '-2px',
+              color: '#FCFF00',
+            }}
+          >
+            Sócios
+          </span>
+          <span
+            className="text-[38px] lg:text-[76.93px]"
+            style={{
+              fontFamily: 'var(--font-tt-runs)',
+              fontWeight: 700,
+              letterSpacing: '-2px',
+              color: '#FFFFFF',
+            }}
+          >
+            {' '}
+            - Diretores
+          </span>
+        </motion.h2>
 
         {/* Directors Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {directors.map((director, index) => (
             <motion.div
               key={director.slug}
@@ -55,12 +66,12 @@ export function PartnersHero() {
             >
               <Link href={`/diretores/${director.slug}`} className="block group">
                 {/* Photo */}
-                <div className="relative w-full overflow-hidden mb-6 transition-transform duration-300 group-hover:scale-[1.02]" style={{ height: '450px', borderRadius: '16px' }}>
+                <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden mb-6 transition-transform duration-300 group-hover:scale-[1.02]">
                   <Image
                     src={director.photo}
                     alt={director.name}
                     fill
-                    className="object-cover object-top"
+                    className="object-cover"
                   />
                 </div>
 
@@ -72,8 +83,9 @@ export function PartnersHero() {
                     fontWeight: 700,
                     lineHeight: '28px',
                     letterSpacing: '0',
+                    color: '#FFFFFF',
                   }}
-                  className="mb-2 text-white group-hover:text-brand-yellow transition-colors"
+                  className="mb-2 group-hover:text-brand-yellow transition-colors"
                 >
                   {director.name}
                 </h3>
@@ -97,18 +109,13 @@ export function PartnersHero() {
         </div>
 
         {/* CTA Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
+        <div className="text-center">
           <button
             className="px-8 py-4"
             style={{
               fontFamily: 'Poppins, sans-serif',
-              fontSize: '32.87px',
-              lineHeight: '38.06px',
+              fontSize: '24px',
+              lineHeight: '32px',
               letterSpacing: '-0.02em',
               background: 'transparent',
               border: '1.11px solid transparent',
@@ -119,8 +126,6 @@ export function PartnersHero() {
               cursor: 'pointer',
               transition: 'opacity 0.3s'
             }}
-            onMouseEnter={(e) => e.currentTarget.style.opacity = '0.8'}
-            onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
           >
             <span
               style={{
@@ -146,7 +151,7 @@ export function PartnersHero() {
               para saber mais
             </span>
           </button>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

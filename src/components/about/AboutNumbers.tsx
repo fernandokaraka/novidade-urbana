@@ -36,20 +36,22 @@ export function AboutNumbers() {
         >
           <h2>
             <span
-              className="text-white text-[32px] lg:text-[48px]"
+              className="text-white"
               style={{
                 fontFamily: 'var(--font-tt-runs)',
-                fontWeight: 700,
+                fontSize: '60px',
+                fontWeight: 400,
                 letterSpacing: '-0.02em',
               }}
             >
               Nossos{' '}
             </span>
             <span
-              className="text-brand-yellow text-[36px] lg:text-[56px]"
               style={{
                 fontFamily: 'var(--font-yellowtail)',
+                fontSize: '96px',
                 fontWeight: 400,
+                color: '#FCFF00',
               }}
             >
               números
@@ -85,7 +87,7 @@ export function AboutNumbers() {
                 className="text-brand-yellow mb-3"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '16px',
+                  fontSize: '20px',
                   fontWeight: 700,
                 }}
               >
@@ -95,7 +97,7 @@ export function AboutNumbers() {
                 className="text-gray-400"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '14px',
+                  fontSize: '20px',
                   fontWeight: 400,
                   lineHeight: '1.6',
                 }}
@@ -119,7 +121,7 @@ export function AboutNumbers() {
             className="inline-flex items-center justify-center px-8 py-4 bg-brand-yellow text-black font-semibold rounded-full hover:bg-brand-orange hover:text-white transition-all duration-300"
             style={{
               fontFamily: 'var(--font-tt-runs)',
-              fontSize: '16px',
+              fontSize: '20px',
               fontWeight: 600,
             }}
           >
