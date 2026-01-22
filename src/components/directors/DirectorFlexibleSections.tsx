@@ -518,17 +518,33 @@ function AudiovisualSectionComponent({ section }: { section: AudiovisualSection 
             </p>
           ))}
         </div>
-        <div className={isSingleImage ? 'w-full lg:w-[45%] lg:ml-auto' : 'flex gap-4 flex-shrink-0'}>
-          {section.images.map((img, i) => (
-            <Image
-              key={i}
-              src={img}
-              alt=""
-              width={isSingleImage ? 480 : 180}
-              height={isSingleImage ? 350 : 260}
-              className={isSingleImage ? 'object-cover rounded-lg w-full h-auto' : 'object-cover rounded-lg'}
-            />
-          ))}
+        <div className={isSingleImage ? 'w-full lg:w-[45%] lg:ml-auto' : 'w-full lg:w-auto flex-shrink-0'}>
+          {isSingleImage ? (
+            section.images.map((img, i) => (
+              <Image
+                key={i}
+                src={img}
+                alt=""
+                width={480}
+                height={350}
+                className="object-cover rounded-lg w-full h-auto"
+              />
+            ))
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-row gap-4">
+              {section.images.map((img, i) => (
+                <div key={i} className={section.images.length === 3 && i === 0 ? 'sm:col-span-2 sm:flex sm:justify-center lg:col-span-1' : ''}>
+                  <Image
+                    src={img}
+                    alt=""
+                    width={180}
+                    height={260}
+                    className="object-cover rounded-lg w-full sm:w-auto sm:max-w-[180px] mx-auto lg:mx-0"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </motion.div>

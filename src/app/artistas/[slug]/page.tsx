@@ -182,7 +182,7 @@ function AlternateHeroSection({ artist }: { artist: ArtistData }) {
           className="mb-6"
           style={{
             fontFamily: 'var(--font-tt-runs)',
-            fontSize: 'clamp(2.5rem, 6vw, 90px)',
+            fontSize: 'clamp(3rem, 8vw, 90px)',
             fontWeight: 400,
             lineHeight: '1',
             color: '#FFFFFF',
@@ -465,7 +465,7 @@ function DefaultHeroSection({ artist }: { artist: ArtistData }) {
               className="mb-8"
               style={{
                 fontFamily: 'var(--font-tt-runs)',
-                fontSize: 'clamp(2rem, 6vw, 90px)',
+                fontSize: 'clamp(3rem, 8vw, 90px)',
                 fontWeight: 400,
                 lineHeight: '1',
                 color: '#FFFFFF',

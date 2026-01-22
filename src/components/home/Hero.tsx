@@ -54,7 +54,7 @@ export function Hero() {
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative z-20 flex flex-col justify-start lg:justify-end pt-28 lg:pt-0 pb-8 lg:pb-32 lg:min-h-[85vh] max-w-xl"
+            className="relative z-20 flex flex-col justify-start lg:justify-end pt-28 lg:pt-0 pb-20 lg:pb-32 lg:min-h-[85vh] max-w-xl"
           >
             {/* Main Headline */}
             <h1 className="mb-8">
