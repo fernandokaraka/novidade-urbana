@@ -54,7 +54,7 @@ export function Hero() {
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col justify-start lg:justify-end pt-28 lg:pt-0 pb-8 lg:pb-32 lg:min-h-[85vh] max-w-xl"
+            className="relative z-20 flex flex-col justify-start lg:justify-end pt-28 lg:pt-0 pb-8 lg:pb-32 lg:min-h-[85vh] max-w-xl"
           >
             {/* Main Headline */}
             <h1 className="mb-8">
@@ -162,7 +162,7 @@ export function Hero() {
           </motion.div>
 
           {/* Image Carousel - Right Side */}
-          <div className="absolute -bottom-4 lg:-bottom-8 right-0 w-full lg:w-[55%] h-[60vh] lg:h-[80vh]">
+          <div className="absolute z-10 -bottom-4 lg:-bottom-8 right-0 w-full lg:w-[55%] h-[60vh] lg:h-[80vh]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
