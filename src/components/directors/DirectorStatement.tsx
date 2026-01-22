@@ -25,12 +25,13 @@ export function DirectorStatement({ director }: DirectorStatementProps) {
           className="flex items-center gap-12"
         >
           <p
-            className="text-white max-w-3xl"
+            className="max-w-3xl"
             style={{
               fontFamily: 'var(--font-tt-runs)',
               fontSize: '20px',
               fontWeight: 400,
               lineHeight: '1.7',
+              color: '#94969C',
             }}
           >
             {director.statementText}

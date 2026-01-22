@@ -81,41 +81,43 @@ export function FeaturedArtists() {
           viewport={{ once: true }}
           className="mb-8"
         >
-          <div className="relative overflow-hidden rounded-2xl mb-4 h-[280px] md:h-[400px]">
-            <Image
-              src={featuredArtists[0].photo}
-              alt={featuredArtists[0].name}
-              fill
-              className="object-cover"
-              style={{ objectPosition: 'center 30%' }}
-            />
-          </div>
-          <div className="text-white">
-            <h3
-              className="mb-3"
-              style={{
-                fontFamily: 'var(--font-tt-runs)',
-                fontSize: '32px',
-                fontWeight: 700,
-                lineHeight: '38px',
-                letterSpacing: '-0.02em'
-              }}
-            >
-              {featuredArtists[0].name}
-            </h3>
-            <p
-              style={{
-                fontFamily: 'var(--font-tt-runs)',
-                fontSize: '16px',
-                fontWeight: 400,
-                lineHeight: '24px',
-                letterSpacing: '0'
-              }}
-              className="max-w-3xl"
-            >
-              {featuredArtists[0].bio}
-            </p>
-          </div>
+          <Link href={`/artistas/${featuredArtists[0].slug}`} className="block group">
+            <div className="relative overflow-hidden rounded-2xl mb-4 h-[280px] md:h-[400px]">
+              <Image
+                src={featuredArtists[0].photo}
+                alt={featuredArtists[0].name}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                style={{ objectPosition: 'center 30%' }}
+              />
+            </div>
+            <div className="text-white">
+              <h3
+                className="mb-3 group-hover:text-brand-yellow transition-colors"
+                style={{
+                  fontFamily: 'var(--font-tt-runs)',
+                  fontSize: '32px',
+                  fontWeight: 700,
+                  lineHeight: '38px',
+                  letterSpacing: '-0.02em'
+                }}
+              >
+                {featuredArtists[0].name}
+              </h3>
+              <p
+                style={{
+                  fontFamily: 'var(--font-tt-runs)',
+                  fontSize: '16px',
+                  fontWeight: 400,
+                  lineHeight: '24px',
+                  letterSpacing: '0'
+                }}
+                className="max-w-3xl"
+              >
+                {featuredArtists[0].bio}
+              </p>
+            </div>
+          </Link>
         </motion.div>
 
         {/* Small Cards - Marcelo and Marcados */}
@@ -127,39 +129,41 @@ export function FeaturedArtists() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <div className="relative overflow-hidden rounded-2xl bg-white mb-4 h-[250px] md:h-[300px]">
-              <Image
-                src={featuredArtists[1].photo}
-                alt={featuredArtists[1].name}
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="text-white">
-              <h3
-                className="mb-2"
-                style={{
-                  fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '24px',
-                  fontWeight: 700,
-                  lineHeight: '29px',
-                  letterSpacing: '-0.02em'
-                }}
-              >
-                {featuredArtists[1].name}
-              </h3>
-              <p
-                style={{
-                  fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '16px',
-                  fontWeight: 400,
-                  lineHeight: '24px',
-                  letterSpacing: '0'
-                }}
-              >
-                {featuredArtists[1].bio}
-              </p>
-            </div>
+            <Link href={`/artistas/${featuredArtists[1].slug}`} className="block group">
+              <div className="relative overflow-hidden rounded-2xl bg-white mb-4 h-[250px] md:h-[300px]">
+                <Image
+                  src={featuredArtists[1].photo}
+                  alt={featuredArtists[1].name}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="text-white">
+                <h3
+                  className="mb-2 group-hover:text-brand-yellow transition-colors"
+                  style={{
+                    fontFamily: 'var(--font-tt-runs)',
+                    fontSize: '24px',
+                    fontWeight: 700,
+                    lineHeight: '29px',
+                    letterSpacing: '-0.02em'
+                  }}
+                >
+                  {featuredArtists[1].name}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-tt-runs)',
+                    fontSize: '16px',
+                    fontWeight: 400,
+                    lineHeight: '24px',
+                    letterSpacing: '0'
+                  }}
+                >
+                  {featuredArtists[1].bio}
+                </p>
+              </div>
+            </Link>
           </motion.div>
 
           {/* Marcados */}
@@ -169,40 +173,42 @@ export function FeaturedArtists() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <div className="relative overflow-hidden rounded-2xl bg-white mb-4 h-[250px] md:h-[300px]">
-              <Image
-                src={featuredArtists[2].photo}
-                alt={featuredArtists[2].name}
-                fill
-                className="object-cover"
-                style={{ objectPosition: 'center 40px' }}
-              />
-            </div>
-            <div className="text-white">
-              <h3
-                className="mb-2"
-                style={{
-                  fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '24px',
-                  fontWeight: 700,
-                  lineHeight: '29px',
-                  letterSpacing: '-0.02em'
-                }}
-              >
-                {featuredArtists[2].name}
-              </h3>
-              <p
-                style={{
-                  fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '16px',
-                  fontWeight: 400,
-                  lineHeight: '24px',
-                  letterSpacing: '0'
-                }}
-              >
-                {featuredArtists[2].bio}
-              </p>
-            </div>
+            <Link href={`/artistas/${featuredArtists[2].slug}`} className="block group">
+              <div className="relative overflow-hidden rounded-2xl bg-white mb-4 h-[250px] md:h-[300px]">
+                <Image
+                  src={featuredArtists[2].photo}
+                  alt={featuredArtists[2].name}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  style={{ objectPosition: 'center 40px' }}
+                />
+              </div>
+              <div className="text-white">
+                <h3
+                  className="mb-2 group-hover:text-brand-yellow transition-colors"
+                  style={{
+                    fontFamily: 'var(--font-tt-runs)',
+                    fontSize: '24px',
+                    fontWeight: 700,
+                    lineHeight: '29px',
+                    letterSpacing: '-0.02em'
+                  }}
+                >
+                  {featuredArtists[2].name}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-tt-runs)',
+                    fontSize: '16px',
+                    fontWeight: 400,
+                    lineHeight: '24px',
+                    letterSpacing: '0'
+                  }}
+                >
+                  {featuredArtists[2].bio}
+                </p>
+              </div>
+            </Link>
           </motion.div>
         </div>
 

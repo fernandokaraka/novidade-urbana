@@ -263,12 +263,12 @@ function AlternateHeroSection({ artist }: { artist: ArtistData }) {
   )
 }
 
-// Seção de imagem full width (tipo Marcados)
-function FullWidthImageSection({ artist }: { artist: ArtistData }) {
-  if (!artist.fullWidthImage) return null
+// Seção de imagem/vídeo full width (tipo Marcados)
+function FullWidthMediaSection({ artist }: { artist: ArtistData }) {
+  if (!artist.fullWidthImage && !artist.fullWidthVideoId) return null
 
   return (
-    <section className="relative bg-black overflow-hidden">
+    <section className="relative bg-black overflow-hidden pb-24 lg:pb-32">
       {/* Background decorativo */}
       <div className="absolute bottom-0 left-0 right-0 h-64 lg:h-80">
         <Image
@@ -286,15 +286,28 @@ function FullWidthImageSection({ artist }: { artist: ArtistData }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="relative w-full"
-          style={{ height: '500px' }}
         >
-          <Image
-            src={artist.fullWidthImage}
-            alt={artist.fullWidthImageAlt || artist.name}
-            fill
-            className="object-contain"
-            quality={100}
-          />
+          {artist.fullWidthVideoId ? (
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                className="absolute inset-0 w-full h-full rounded-2xl"
+                src={`https://www.youtube.com/embed/${artist.fullWidthVideoId}?rel=0`}
+                title="YouTube video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          ) : artist.fullWidthImage ? (
+            <div className="relative w-full" style={{ height: '500px' }}>
+              <Image
+                src={artist.fullWidthImage}
+                alt={artist.fullWidthImageAlt || artist.name}
+                fill
+                className="object-contain"
+                quality={100}
+              />
+            </div>
+          ) : null}
         </motion.div>
       </div>
     </section>
@@ -379,7 +392,7 @@ function SocialLinksSection({ artist }: { artist: ArtistData }) {
 
           {artist.socialLinks.spotify && (
             <Link
-              href={`https://open.spotify.com/search/${encodeURIComponent(artist.socialLinks.spotify)}`}
+              href={artist.socialLinks.spotify.startsWith('http') ? artist.socialLinks.spotify : `https://open.spotify.com/search/${encodeURIComponent(artist.socialLinks.spotify)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 text-white hover:opacity-80 transition-opacity whitespace-nowrap"
@@ -392,7 +405,7 @@ function SocialLinksSection({ artist }: { artist: ArtistData }) {
                   fontWeight: 500
                 }}
               >
-                {artist.socialLinks.spotify}
+                Spotify
               </span>
             </Link>
           )}
@@ -539,8 +552,8 @@ export default function ArtistPage() {
           ))
         )}
 
-        {/* Imagem full width (layout alternativo) */}
-        {isAlternateLayout && <FullWidthImageSection artist={artist} />}
+        {/* Imagem/vídeo full width (layout alternativo) */}
+        {isAlternateLayout && <FullWidthMediaSection artist={artist} />}
       </div>
     </PublicLayout>
   )

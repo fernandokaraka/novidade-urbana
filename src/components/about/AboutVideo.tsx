@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { fadeInUp, staggerContainer } from '@/lib/animations'
-import { Play } from 'lucide-react'
 
 export function AboutVideo() {
   return (
@@ -27,7 +26,7 @@ export function AboutVideo() {
                 letterSpacing: '-0.02em',
               }}
             >
-              Lorem{' '}
+              Confira no{' '}
             </span>
             <span
               style={{
@@ -37,12 +36,12 @@ export function AboutVideo() {
                 color: '#FCFF00',
               }}
             >
-              ipsum
+              Youtube
             </span>
           </h2>
         </motion.div>
 
-        {/* Video Placeholder */}
+        {/* Video Embed */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -51,13 +50,16 @@ export function AboutVideo() {
           className="relative mb-12 lg:mb-16"
         >
           <div
-            className="relative w-full aspect-video bg-[#3a3a3a] rounded-2xl flex items-center justify-center cursor-pointer group overflow-hidden"
+            className="relative w-full aspect-video rounded-2xl overflow-hidden"
             style={{ maxWidth: '900px', margin: '0 auto' }}
           >
-            {/* Play Button */}
-            <div className="w-16 h-16 lg:w-20 lg:h-20 bg-white/90 rounded-full flex items-center justify-center group-hover:bg-white group-hover:scale-110 transition-all duration-300">
-              <Play className="w-6 h-6 lg:w-8 lg:h-8 text-black ml-1" fill="currentColor" />
-            </div>
+            <iframe
+              className="absolute inset-0 w-full h-full"
+              src="https://www.youtube.com/embed/ADrp_jMDo0E?rel=0"
+              title="YouTube video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
           </div>
         </motion.div>
 

@@ -46,18 +46,19 @@ export function DirectorPartners({ director }: DirectorPartnersProps) {
 
           {/* Text */}
           <p
-            className="text-white flex-1 min-w-[280px]"
+            className="flex-1 min-w-[280px]"
             style={{
               fontFamily: 'var(--font-tt-runs)',
               fontSize: '20px',
               fontWeight: 400,
               lineHeight: '1.7',
+              color: '#94969C',
             }}
           >
             {director.partnersText || (
               <>
                 Colaborou dentro de projetos em parceria com gravadoras conhecidas mundialmente como:{' '}
-                <span className="text-brand-yellow font-bold">
+                <span style={{ color: '#94969C', fontWeight: 700 }}>
                   {director.partners.map((p) => p.name).join(', ').replace(/, ([^,]*)$/, ' e $1')}.
                 </span>
               </>

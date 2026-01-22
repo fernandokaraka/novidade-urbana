@@ -28,7 +28,7 @@ function renderTextWithBold(text: string) {
   return parts.map((part, index) => {
     if (index % 2 === 1) {
       return (
-        <strong key={index} className="text-brand-yellow font-bold">
+        <strong key={index} style={{ color: '#94969C', fontWeight: 700 }}>
           {part}
         </strong>
       )
@@ -392,10 +392,10 @@ function LogosSectionComponent({ section }: { section: LogosSection }) {
         <p
           style={{
             fontFamily: 'var(--font-tt-runs)',
-            fontSize: '16px',
+            fontSize: '22px',
             fontWeight: 400,
             lineHeight: '1.6',
-            color: isDark ? 'rgba(255,255,255,0.8)' : '#545454',
+            color: isDark ? '#94969C' : '#545454',
           }}
         >
           {section.closingText}
@@ -415,46 +415,46 @@ function FestivalSectionComponent({ section }: { section: FestivalSection }) {
       variants={fadeInUp}
       className="mb-12"
     >
-      <div className="flex flex-col lg:flex-row gap-8 items-start mb-8">
-        <div className="flex-shrink-0 w-full lg:w-1/3">
+      <div className="flex flex-col lg:flex-row gap-8 items-center mb-8">
+        <div className="flex-shrink-0 w-full lg:w-[40%]">
           <Image
             src={section.image}
             alt={section.title}
-            width={300}
-            height={300}
-            className="object-cover rounded-2xl"
+            width={400}
+            height={350}
+            className="object-cover rounded-2xl w-full h-auto"
           />
         </div>
-        <div className="flex-1">
+        <div className="flex-1 lg:w-[60%] flex flex-col justify-center">
           <h3 className="mb-4">
             <span
-              className="text-white"
               style={{
                 fontFamily: 'var(--font-tt-runs)',
-                fontSize: '32px',
+                fontSize: '57px',
                 fontWeight: 700,
+                color: '#FFFFFF',
               }}
             >
               {section.title}{' '}
             </span>
             <span
-              className="text-brand-yellow"
               style={{
                 fontFamily: 'var(--font-yellowtail)',
-                fontSize: '36px',
+                fontSize: '76px',
                 fontWeight: 400,
+                color: '#FCFF00',
               }}
             >
               {section.titleHighlight}
             </span>
           </h3>
           <p
-            className="text-white"
             style={{
               fontFamily: 'var(--font-tt-runs)',
-              fontSize: '18px',
+              fontSize: '22px',
               fontWeight: 400,
               lineHeight: '1.7',
+              color: '#94969C',
             }}
           >
             {renderTextWithBold(section.mainText)}
@@ -464,12 +464,13 @@ function FestivalSectionComponent({ section }: { section: FestivalSection }) {
       {section.additionalParagraphs.map((p, i) => (
         <p
           key={i}
-          className="text-white mb-4"
+          className="mb-4"
           style={{
             fontFamily: 'var(--font-tt-runs)',
-            fontSize: '16px',
+            fontSize: '22px',
             fontWeight: 400,
             lineHeight: '1.6',
+            color: '#94969C',
           }}
         >
           {p}
@@ -481,6 +482,8 @@ function FestivalSectionComponent({ section }: { section: FestivalSection }) {
 
 // Componente para seção audiovisual
 function AudiovisualSectionComponent({ section }: { section: AudiovisualSection }) {
+  const isSingleImage = section.images.length === 1
+
   return (
     <motion.div
       initial="hidden"
@@ -489,14 +492,15 @@ function AudiovisualSectionComponent({ section }: { section: AudiovisualSection 
       variants={fadeInUp}
       className="mb-12"
     >
-      <div className="flex flex-col lg:flex-row gap-8 items-start">
-        <div className="flex-1">
+      <div className="flex flex-col lg:flex-row gap-12 items-center">
+        <div className={isSingleImage ? 'w-full lg:w-[35%] text-left' : 'flex-1'}>
           <h3
-            className="text-brand-yellow mb-6 border-b-2 border-brand-yellow inline-block pb-1"
+            className="mb-6"
             style={{
               fontFamily: 'var(--font-tt-runs)',
-              fontSize: '28px',
+              fontSize: '57px',
               fontWeight: 700,
+              color: '#FCFF00',
             }}
           >
             {section.title}
@@ -504,27 +508,28 @@ function AudiovisualSectionComponent({ section }: { section: AudiovisualSection 
           {section.paragraphs.map((p, i) => (
             <p
               key={i}
-              className="text-white mb-4"
+              className="mb-4"
               style={{
                 fontFamily: 'var(--font-tt-runs)',
-                fontSize: '18px',
+                fontSize: '22px',
                 fontWeight: 400,
                 lineHeight: '1.7',
+                color: '#94969C',
               }}
             >
               {renderTextWithBold(p)}
             </p>
           ))}
         </div>
-        <div className="flex gap-4 flex-shrink-0">
+        <div className={isSingleImage ? 'w-full lg:w-[45%] lg:ml-auto' : 'flex gap-4 flex-shrink-0'}>
           {section.images.map((img, i) => (
             <Image
               key={i}
               src={img}
               alt=""
-              width={180}
-              height={260}
-              className="object-cover rounded-lg"
+              width={isSingleImage ? 480 : 180}
+              height={isSingleImage ? 350 : 260}
+              className={isSingleImage ? 'object-cover rounded-lg w-full h-auto' : 'object-cover rounded-lg'}
             />
           ))}
         </div>
@@ -544,43 +549,46 @@ function SpiritualTurnSectionComponent({ section }: { section: SpiritualTurnSect
       className="mb-12"
     >
       <div className="flex flex-col lg:flex-row gap-8 items-start">
-        <div className="flex-shrink-0 w-full lg:w-1/3">
+        <div className="flex-shrink-0 w-full lg:w-[45%]">
           <Image
             src={section.image}
             alt=""
-            width={300}
-            height={350}
-            className="object-cover rounded-2xl"
+            width={450}
+            height={450}
+            className="object-cover rounded-2xl w-full h-auto"
           />
         </div>
-        <div className="flex-1">
+        <div className="flex-1 lg:w-[55%]">
           <h3
-            className="text-brand-yellow mb-6"
+            className="mb-6"
             style={{
               fontFamily: 'var(--font-tt-runs)',
-              fontSize: '24px',
+              fontSize: '32px',
               fontWeight: 700,
+              color: '#FCFF00',
             }}
           >
             {section.title}
           </h3>
           <p
-            className="text-white mb-6"
+            className="mb-6"
             style={{
               fontFamily: 'var(--font-tt-runs)',
-              fontSize: '18px',
+              fontSize: '22px',
               fontWeight: 400,
               lineHeight: '1.7',
+              color: '#94969C',
             }}
           >
             {section.introParagraph}
           </p>
           <h4
-            className="text-white mb-4"
+            className="mb-4"
             style={{
               fontFamily: 'var(--font-tt-runs)',
-              fontSize: '20px',
+              fontSize: '32px',
               fontWeight: 700,
+              color: '#94969C',
             }}
           >
             {section.yearTitle}
@@ -589,12 +597,12 @@ function SpiritualTurnSectionComponent({ section }: { section: SpiritualTurnSect
             {section.items.map((item, i) => (
               <li
                 key={i}
-                className="text-white"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '16px',
+                  fontSize: '22px',
                   fontWeight: 400,
                   lineHeight: '1.6',
+                  color: '#94969C',
                 }}
               >
                 {item}
@@ -615,31 +623,32 @@ function PartnershipSectionComponent({ section }: { section: PartnershipSection 
       whileInView="visible"
       viewport={{ once: true }}
       variants={fadeInUp}
-      className={`mb-12 ${section.hasBottomBorder ? 'pb-8 border-b-4 border-brand-yellow' : ''}`}
+      className="mb-12"
     >
-      <div className="flex flex-col lg:flex-row gap-8 items-start">
-        <div className="flex-1">
+      <div className="flex flex-col lg:flex-row gap-8 items-center">
+        <div className="flex-1 lg:w-[55%]">
           <h3 className="mb-6">
             <span
-              className="text-brand-yellow"
+              className="block"
               style={{
                 fontFamily: 'var(--font-tt-runs)',
-                fontSize: '20px',
+                fontSize: '32px',
                 fontWeight: 700,
+                color: '#94969C',
               }}
             >
               {section.title}
             </span>
             {section.titleHighlight && (
               <span
-                className="text-white"
+                className="block"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '20px',
+                  fontSize: '32px',
                   fontWeight: 700,
+                  color: '#FCFF00',
                 }}
               >
-                {' '}
                 {section.titleHighlight}
               </span>
             )}
@@ -647,12 +656,13 @@ function PartnershipSectionComponent({ section }: { section: PartnershipSection 
           {section.paragraphs.map((p, i) => (
             <p
               key={i}
-              className="text-white mb-4"
+              className="mb-4"
               style={{
                 fontFamily: 'var(--font-tt-runs)',
-                fontSize: '18px',
+                fontSize: '22px',
                 fontWeight: 400,
                 lineHeight: '1.7',
+                color: '#94969C',
               }}
             >
               {p}
@@ -660,13 +670,13 @@ function PartnershipSectionComponent({ section }: { section: PartnershipSection 
           ))}
         </div>
         {section.logo && (
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 lg:w-[45%]">
             <Image
               src={section.logo}
               alt=""
-              width={200}
-              height={100}
-              className="object-contain"
+              width={400}
+              height={400}
+              className="object-contain w-full h-auto"
             />
           </div>
         )}
@@ -687,43 +697,45 @@ function LegacySectionComponent({ section }: { section: LegacySection }) {
     >
       <h3 className="mb-6">
         <span
-          className="text-white"
           style={{
             fontFamily: 'var(--font-tt-runs)',
-            fontSize: '32px',
+            fontSize: '64px',
             fontWeight: 700,
+            color: '#FFFFFF',
           }}
         >
           {section.title}{' '}
         </span>
         <span
-          className="text-brand-yellow"
           style={{
             fontFamily: 'var(--font-yellowtail)',
-            fontSize: '36px',
+            fontSize: '96px',
             fontWeight: 400,
+            color: '#FCFF00',
           }}
         >
           {section.titleHighlight}
         </span>
       </h3>
       <p
-        className="text-white mb-6"
+        className="mb-6"
         style={{
           fontFamily: 'var(--font-tt-runs)',
-          fontSize: '18px',
+          fontSize: '22px',
           fontWeight: 400,
           lineHeight: '1.7',
+          color: '#94969C',
         }}
       >
         {section.introParagraph}
       </p>
       <h4
-        className="text-brand-yellow mb-4"
+        className="mb-4"
         style={{
           fontFamily: 'var(--font-tt-runs)',
-          fontSize: '18px',
+          fontSize: '22px',
           fontWeight: 700,
+          color: '#FCFF00',
         }}
       >
         {section.highlightTitle}
@@ -732,12 +744,12 @@ function LegacySectionComponent({ section }: { section: LegacySection }) {
         {section.items.map((item, i) => (
           <li
             key={i}
-            className="text-white"
             style={{
               fontFamily: 'var(--font-tt-runs)',
-              fontSize: '16px',
+              fontSize: '22px',
               fontWeight: 400,
               lineHeight: '1.6',
+              color: '#94969C',
             }}
           >
             - {item}
@@ -747,12 +759,13 @@ function LegacySectionComponent({ section }: { section: LegacySection }) {
       {section.closingParagraphs.map((p, i) => (
         <p
           key={i}
-          className="text-white mb-4"
+          className="mb-4"
           style={{
             fontFamily: 'var(--font-tt-runs)',
-            fontSize: '18px',
+            fontSize: '22px',
             fontWeight: 400,
             lineHeight: '1.7',
+            color: '#94969C',
           }}
         >
           {p}

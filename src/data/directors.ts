@@ -426,7 +426,7 @@ export const directors: Director[] = [
         background: 'dark',
         title: 'KondZilla',
         titleHighlight: 'Festival',
-        image: '/images/directors/marcelo-portuga/kondzilla-festival.jpg',
+        image: '/images/directors/marcelo-portuga/kondzilla-festival.png',
         mainText: 'O KondZilla Festival no Sambódromo do Anhembi aconteceu em 19 de novembro de 2019, sendo um grande evento de estreia que reuniu diversos nomes do funk e do pop, como **Kevin O Chris, Léo Santana, Lexa, Kevinho e o próprio Alok**, no pavilhão coberto do Anhembi, celebrando a nova geração da música brasileira com mais de 10 horas de shows.',
         additionalParagraphs: [
           'Foi a primeira edição do festival, organizado pelo produtor KondZilla, conhecido pelo maior canal de música do YouTube.',
@@ -443,8 +443,7 @@ export const directors: Director[] = [
           'No audiovisual, artistas da gravadora participaram de **produções originais da Netflix**, com contratos formais assinados, incluindo as **séries Sintonia e DNA do Crime**.',
         ],
         images: [
-          '/images/directors/marcelo-portuga/sintonia.jpg',
-          '/images/directors/marcelo-portuga/dna-do-crime.jpg',
+          '/images/directors/marcelo-portuga/sintonia.png',
         ],
       },
       {

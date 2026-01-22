@@ -34,6 +34,7 @@ export interface ArtistData {
   heroImageAlt?: string
   fullWidthImage?: string // Imagem 100% no final da página
   fullWidthImageAlt?: string
+  fullWidthVideoId?: string // ID do vídeo do YouTube para embed
 }
 
 export const artistsData: ArtistData[] = [
@@ -49,7 +50,7 @@ export const artistsData: ArtistData[] = [
     socialLinks: {
       instagram: '@thallesroberto',
       youtube: 'www.youtube.com/@thallesrobertoo',
-      spotify: 'Thalles Roberto'
+      spotify: 'https://open.spotify.com/artist/2Js5EdWOVgL2B2CbtXr5n1'
     },
     achievements: [
       {
@@ -75,7 +76,7 @@ export const artistsData: ArtistData[] = [
     socialLinks: {
       instagram: '@marceloaguiaroficial',
       youtube: 'www.youtube.com/@marceloaguiaroficial',
-      spotify: 'Marcelo Aguiar'
+      spotify: 'https://open.spotify.com/artist/4rPyEmsi5v4OiQyfzZBsLJ'
     },
     achievements: [
       {
@@ -101,12 +102,11 @@ export const artistsData: ArtistData[] = [
     photoAlt: 'Grupo Marcados',
     heroImage: '/images/artists/marcados-hero-small.png',
     heroImageAlt: 'Grupo Marcados',
-    fullWidthImage: '/images/artists/marcados-full-width.png',
-    fullWidthImageAlt: 'Grupo Marcados em apresentação',
+    fullWidthVideoId: 'qfq3YVW7nl8',
     socialLinks: {
       instagram: '@marcadospagodegospel',
       youtube: 'www.youtube.com/@marcadospagode',
-      spotify: 'Marcados Gospel'
+      spotify: 'https://open.spotify.com/artist/1cyFEihCjqmV3ymkewYSAK'
     },
     achievements: []
   }

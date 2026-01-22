@@ -32,13 +32,13 @@ export function DirectorProjects({ director }: DirectorProjectsProps) {
               {/* Text */}
               <div className="flex-1">
                 <p
-                  className="text-white"
                   style={{
                     fontFamily: 'var(--font-tt-runs)',
                     fontSize: '20px',
                     fontWeight: 400,
                     lineHeight: '1.8',
                     whiteSpace: 'pre-line',
+                    color: '#94969C',
                   }}
                 >
                   {project.text}
@@ -57,11 +57,12 @@ export function DirectorProjects({ director }: DirectorProjectsProps) {
                 />
                 {project.imageCaption && (
                   <p
-                    className="text-white text-center mt-3"
+                    className="text-center mt-3"
                     style={{
                       fontFamily: 'var(--font-tt-runs)',
                       fontSize: '14px',
                       fontWeight: 600,
+                      color: '#94969C',
                     }}
                   >
                     {project.imageCaption}

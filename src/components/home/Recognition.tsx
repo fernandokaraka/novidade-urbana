@@ -9,16 +9,19 @@ const recognitionItems = [
     title: 'Grammy',
     description: 'Thalles Roberto teve seu trabalho reconhecido internacionalmente com indicação ao Grammy Latino, um dos prêmios mais importantes da música mundial.',
     photo: '/images/projects/grammy-card-home-background.png',
+    slug: 'grammy-latino',
   },
   {
     title: 'Reveillon 2026',
     description: 'Título de Maior Reveillon do Mundo',
     photo: '/images/projects/reveillon-2026-home-card-bg.png',
+    slug: 'reveillon-2026',
   },
   {
     title: 'Feat. Jorge',
     description: 'Encontro poderoso entre vocês e propósito Cristo',
     photo: '/images/projects/feat-jorge-card-home-bg.png',
+    slug: 'feat-jorge',
   },
   {
     title: 'Av. do Arrependimento',
@@ -29,6 +32,7 @@ const recognitionItems = [
     title: 'DEUS GRANDE',
     description: 'Marcelo Aguiar',
     photo: '/images/projects/deus-grande-card-home-bg.png',
+    slug: 'deus-grande',
   }
 ]
 
@@ -97,30 +101,85 @@ export function Recognition() {
         <div className="mb-12">
           {/* First Row - 70/30 split on desktop, stacked on mobile */}
           <div className="grid grid-cols-1 lg:grid-cols-[7fr_3fr] gap-6 mb-6">
-            {recognitionItems.slice(0, 2).map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="relative overflow-hidden rounded-2xl h-[400px] lg:h-[744px]"
-              >
+            {recognitionItems.slice(0, 2).map((item, index) => {
+              const CardContent = (
+                <>
+                  <Image
+                    src={item.photo}
+                    alt={item.title}
+                    fill
+                    className={`object-cover ${item.slug ? 'group-hover:scale-105 transition-transform duration-300' : ''}`}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                    <h3
+                      className={`mb-3 ${item.slug ? 'group-hover:text-brand-yellow transition-colors' : ''}`}
+                      style={{
+                        fontFamily: 'var(--font-tt-runs)',
+                        fontSize: '32px',
+                        fontWeight: 700,
+                        lineHeight: '38px',
+                        letterSpacing: '-0.02em'
+                      }}
+                    >
+                      {item.title}
+                    </h3>
+                    <p
+                      style={{
+                        fontFamily: 'var(--font-tt-runs)',
+                        fontSize: '16px',
+                        fontWeight: 400,
+                        lineHeight: '24px',
+                        letterSpacing: '0'
+                      }}
+                    >
+                      {item.description}
+                    </p>
+                  </div>
+                </>
+              )
+
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="relative overflow-hidden rounded-2xl h-[400px] lg:h-[744px]"
+                >
+                  {item.slug ? (
+                    <Link href={`/projetos/${item.slug}`} className="block absolute inset-0 group">
+                      {CardContent}
+                    </Link>
+                  ) : (
+                    CardContent
+                  )}
+                </motion.div>
+              )
+            })}
+          </div>
+
+          {/* Second Row - 3 equal columns on desktop, stacked on mobile */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {recognitionItems.slice(2).map((item, index) => {
+            const CardContent = (
+              <>
                 <Image
                   src={item.photo}
                   alt={item.title}
                   fill
-                  className="object-cover"
+                  className={`object-cover ${item.slug ? 'group-hover:scale-105 transition-transform duration-300' : ''}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                   <h3
-                    className="mb-3"
+                    className={`mb-2 ${item.slug ? 'group-hover:text-brand-yellow transition-colors' : ''}`}
                     style={{
                       fontFamily: 'var(--font-tt-runs)',
-                      fontSize: '32px',
+                      fontSize: '24px',
                       fontWeight: 700,
-                      lineHeight: '38px',
+                      lineHeight: '29px',
                       letterSpacing: '-0.02em'
                     }}
                   >
@@ -129,64 +188,37 @@ export function Recognition() {
                   <p
                     style={{
                       fontFamily: 'var(--font-tt-runs)',
-                      fontSize: '16px',
+                      fontSize: '14px',
                       fontWeight: 400,
-                      lineHeight: '24px',
+                      lineHeight: '21px',
                       letterSpacing: '0'
                     }}
                   >
                     {item.description}
                   </p>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </>
+            )
 
-          {/* Second Row - 3 equal columns on desktop, stacked on mobile */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {recognitionItems.slice(2).map((item, index) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: (index + 2) * 0.1 }}
-              className="relative overflow-hidden rounded-2xl h-[300px] md:h-[358px]"
-            >
-              <Image
-                src={item.photo}
-                alt={item.title}
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <h3
-                  className="mb-2"
-                  style={{
-                    fontFamily: 'var(--font-tt-runs)',
-                    fontSize: '24px',
-                    fontWeight: 700,
-                    lineHeight: '29px',
-                    letterSpacing: '-0.02em'
-                  }}
-                >
-                  {item.title}
-                </h3>
-                <p
-                  style={{
-                    fontFamily: 'var(--font-tt-runs)',
-                    fontSize: '14px',
-                    fontWeight: 400,
-                    lineHeight: '21px',
-                    letterSpacing: '0'
-                  }}
-                >
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+            return (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: (index + 2) * 0.1 }}
+                className="relative overflow-hidden rounded-2xl h-[300px] md:h-[358px]"
+              >
+                {item.slug ? (
+                  <Link href={`/projetos/${item.slug}`} className="block absolute inset-0 group">
+                    {CardContent}
+                  </Link>
+                ) : (
+                  CardContent
+                )}
+              </motion.div>
+            )
+          })}
           </div>
         </div>
 

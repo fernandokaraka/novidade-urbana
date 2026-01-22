@@ -29,12 +29,13 @@ export function DirectorFeaturedArtist({ director }: DirectorFeaturedArtistProps
           {/* Text Content */}
           <div className="flex-1">
             <h2
-              className="text-white mb-6"
+              className="mb-6"
               style={{
                 fontFamily: 'var(--font-tt-runs)',
                 fontSize: 'clamp(36px, 5vw, 56px)',
                 fontWeight: 700,
                 lineHeight: '1.1',
+                color: '#94969C',
               }}
             >
               {name}
@@ -43,12 +44,13 @@ export function DirectorFeaturedArtist({ director }: DirectorFeaturedArtistProps
             {description.map((paragraph, index) => (
               <p
                 key={index}
-                className="text-white/80 mb-4 last:mb-0"
+                className="mb-4 last:mb-0"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
                   fontSize: '18px',
                   fontWeight: 400,
                   lineHeight: '1.7',
+                  color: '#94969C',
                 }}
               >
                 {paragraph}

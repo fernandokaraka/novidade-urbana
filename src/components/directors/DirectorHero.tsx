@@ -76,12 +76,13 @@ export function DirectorHero({ director }: DirectorHeroProps) {
 
             {/* Short Bio */}
             <p
-              className="text-white mb-8"
+              className="mb-8"
               style={{
                 fontFamily: 'var(--font-tt-runs)',
                 fontSize: '20px',
                 fontWeight: 400,
                 lineHeight: '1.7',
+                color: '#94969C',
               }}
             >
               {director.shortBio}

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Instagram, Linkedin } from 'lucide-react'
+import { Instagram } from 'lucide-react'
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -47,15 +47,6 @@ export function Footer() {
 
           {/* Social Icons */}
           <div className="flex items-center gap-4">
-            <a
-              href="https://linkedin.com/company/novidadeurbana"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-black hover:text-gray-800 transition-colors"
-              aria-label="LinkedIn"
-            >
-              <Linkedin size={24} />
-            </a>
             <a
               href="https://instagram.com/novidadeurbana"
               target="_blank"

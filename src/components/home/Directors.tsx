@@ -7,21 +7,25 @@ import { motion } from 'framer-motion'
 const directors = [
   {
     name: 'Doninha',
+    slug: 'doninha',
     role: 'Produtor de eventos e empresário artístico',
     photo: '/images/directors/doninho-img-home.jpg',
   },
   {
     name: 'Marcos Ascena',
+    slug: 'marcos-ascena',
     role: 'Produtor Executivo- Manager Artístico',
     photo: '/images/directors/marcos-sena-img-home.png',
   },
   {
     name: 'Marcelo Portuga',
+    slug: 'marcelo-portuga',
     role: 'Empresário Artístico - Estrategista de lançamentos',
     photo: '/images/directors/marcelo-portuga-img-home.png',
   },
   {
     name: 'Fábio Principe',
+    slug: 'fabio-principe',
     role: 'Diretor Financeiro',
     photo: '/images/directors/fabio-principe-img-home-nova.png',
   },
@@ -86,44 +90,46 @@ export function Directors() {
               transition={{ delay: index * 0.1 }}
               className="text-center"
             >
-              {/* Photo */}
-              <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden mb-6">
-                <Image
-                  src={director.photo}
-                  alt={director.name}
-                  fill
-                  className="object-cover"
-                />
-              </div>
+              <Link href={`/diretores/${director.slug}`} className="block group">
+                {/* Photo */}
+                <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden mb-6">
+                  <Image
+                    src={director.photo}
+                    alt={director.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
 
-              {/* Name */}
-              <h3
-                style={{
-                  fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '24px',
-                  fontWeight: 700,
-                  lineHeight: '28px',
-                  letterSpacing: '0',
-                  color: '#FFFFFF',
-                }}
-                className="mb-2"
-              >
-                {director.name}
-              </h3>
+                {/* Name */}
+                <h3
+                  style={{
+                    fontFamily: 'var(--font-tt-runs)',
+                    fontSize: '24px',
+                    fontWeight: 700,
+                    lineHeight: '28px',
+                    letterSpacing: '0',
+                    color: '#FFFFFF',
+                  }}
+                  className="mb-2 group-hover:text-brand-yellow transition-colors"
+                >
+                  {director.name}
+                </h3>
 
-              {/* Role */}
-              <p
-                style={{
-                  fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '14px',
-                  fontWeight: 400,
-                  lineHeight: '20px',
-                  letterSpacing: '0',
-                  color: '#CCCCCC',
-                }}
-              >
-                {director.role}
-              </p>
+                {/* Role */}
+                <p
+                  style={{
+                    fontFamily: 'var(--font-tt-runs)',
+                    fontSize: '14px',
+                    fontWeight: 400,
+                    lineHeight: '20px',
+                    letterSpacing: '0',
+                    color: '#CCCCCC',
+                  }}
+                >
+                  {director.role}
+                </p>
+              </Link>
             </motion.div>
           ))}
         </div>
@@ -131,7 +137,7 @@ export function Directors() {
         {/* CTA Button */}
         <div className="text-center">
           <Link
-            href="/sobre"
+            href="/diretores"
             className="inline-block px-10 py-4 bg-brand-yellow text-black rounded-lg hover:bg-yellow-400 transition-colors"
             style={{
               fontFamily: 'var(--font-tt-runs)',

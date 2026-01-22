@@ -58,12 +58,13 @@ export function DirectorCurrentRole({ director }: DirectorCurrentRoleProps) {
             {director.currentRole.description.map((paragraph, index) => (
               <p
                 key={index}
-                className={`${isLight ? 'text-black' : 'text-white'} text-center mb-8 last:mb-0`}
+                className="text-center mb-8 last:mb-0"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
                   fontSize: '20px',
                   fontWeight: 400,
                   lineHeight: '1.8',
+                  color: isLight ? '#000000' : '#94969C',
                 }}
               >
                 {paragraph}

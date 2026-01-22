@@ -28,12 +28,13 @@ export function DirectorTextSections({ director }: DirectorTextSectionsProps) {
             >
               {/* Title */}
               <h3
-                className="text-brand-yellow mb-6"
+                className="mb-6"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
                   fontSize: '24px',
                   fontWeight: 700,
                   letterSpacing: '0.05em',
+                  color: '#94969C',
                 }}
               >
                 {section.title}
@@ -44,12 +45,12 @@ export function DirectorTextSections({ director }: DirectorTextSectionsProps) {
                 {section.items.map((item, itemIndex) => (
                   <li
                     key={itemIndex}
-                    className="text-white/80"
                     style={{
                       fontFamily: 'var(--font-tt-runs)',
                       fontSize: '16px',
                       fontWeight: 400,
                       lineHeight: '1.6',
+                      color: '#94969C',
                     }}
                   >
                     - {item}

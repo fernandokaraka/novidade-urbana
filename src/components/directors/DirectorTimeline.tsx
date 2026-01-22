@@ -67,11 +67,12 @@ export function DirectorTimeline({ director }: DirectorTimelineProps) {
 
                 {/* Company & Location */}
                 <h3
-                  className="text-white mb-1"
+                  className="mb-1"
                   style={{
                     fontFamily: 'var(--font-tt-runs)',
                     fontSize: '18px',
                     fontWeight: 700,
+                    color: '#94969C',
                   }}
                 >
                   {entry.company} – {entry.location}
@@ -79,11 +80,12 @@ export function DirectorTimeline({ director }: DirectorTimelineProps) {
 
                 {/* Role & Period */}
                 <p
-                  className="text-brand-yellow mb-4"
+                  className="mb-4"
                   style={{
                     fontFamily: 'var(--font-tt-runs)',
                     fontSize: '16px',
                     fontWeight: 600,
+                    color: '#94969C',
                   }}
                 >
                   {entry.role} | {entry.period}
@@ -94,12 +96,12 @@ export function DirectorTimeline({ director }: DirectorTimelineProps) {
                   {entry.items.map((item, itemIndex) => (
                     <li
                       key={itemIndex}
-                      className="text-white"
                       style={{
                         fontFamily: 'var(--font-tt-runs)',
                         fontSize: '16px',
                         fontWeight: 400,
                         lineHeight: '1.6',
+                        color: '#94969C',
                       }}
                     >
                       - {item}

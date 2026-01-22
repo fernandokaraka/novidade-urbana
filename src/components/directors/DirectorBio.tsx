@@ -29,12 +29,13 @@ export function DirectorBio({ director }: DirectorBioProps) {
             {director.fullBio.map((paragraph, index) => (
               <p
                 key={index}
-                className="text-white mb-6 last:mb-0"
+                className="mb-6 last:mb-0"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
                   fontSize: '20px',
                   fontWeight: 400,
                   lineHeight: '1.7',
+                  color: '#94969C',
                 }}
               >
                 {paragraph}
@@ -63,12 +64,13 @@ export function DirectorBio({ director }: DirectorBioProps) {
                   />
                 </div>
                 <p
-                  className="text-white text-center"
+                  className="text-center"
                   style={{
                     fontFamily: 'var(--font-tt-runs)',
                     fontSize: '13px',
                     fontWeight: 400,
                     lineHeight: '1.5',
+                    color: '#94969C',
                   }}
                 >
                   {item.caption}
