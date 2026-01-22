@@ -14,7 +14,7 @@ const heroImages = [
   {
     src: '/images/hero/marcados-hero-home.png',
     alt: 'Marcados',
-    offsetY: '-80px', // Mais para cima
+    offsetY: '-40px', // Reduzido para ficar mais no fundo
   },
   {
     src: '/images/hero/marcelo-aguiar-hero-home.png',
@@ -35,7 +35,7 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="relative bg-black min-h-[85svh] lg:min-h-[85vh] overflow-hidden">
+    <section className="relative bg-black min-h-[90svh] lg:min-h-[85vh] overflow-hidden">
       {/* Background Texture */}
       <div className="absolute inset-0">
         <Image
@@ -47,8 +47,8 @@ export function Hero() {
         />
       </div>
 
-      <div className="container-site relative z-10 min-h-[85svh] lg:min-h-[85vh] px-4">
-        <div className="relative min-h-[85svh] lg:min-h-[85vh]">
+      <div className="container-site relative z-10 min-h-[90svh] lg:min-h-[85vh] px-4">
+        <div className="relative min-h-[90svh] lg:min-h-[85vh]">
           {/* Text Content - Left Side */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -162,7 +162,7 @@ export function Hero() {
           </motion.div>
 
           {/* Image Carousel - Right Side */}
-          <div className="absolute -bottom-8 lg:-bottom-8 right-0 w-full lg:w-[55%] h-[55vh] lg:h-[80vh]">
+          <div className="absolute -bottom-4 lg:-bottom-8 right-0 w-full lg:w-[55%] h-[60vh] lg:h-[80vh]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
