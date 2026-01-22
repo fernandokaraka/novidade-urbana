@@ -18,10 +18,9 @@ export function AboutVideo() {
         >
           <h2>
             <span
-              className="text-white"
+              className="text-white text-3xl sm:text-4xl lg:text-[60px]"
               style={{
                 fontFamily: 'var(--font-tt-runs)',
-                fontSize: '60px',
                 fontWeight: 400,
                 letterSpacing: '-0.02em',
               }}
@@ -29,9 +28,9 @@ export function AboutVideo() {
               Confira no{' '}
             </span>
             <span
+              className="text-4xl sm:text-5xl lg:text-[96px]"
               style={{
                 fontFamily: 'var(--font-yellowtail)',
-                fontSize: '96px',
                 fontWeight: 400,
                 color: '#FCFF00',
               }}
@@ -72,10 +71,9 @@ export function AboutVideo() {
           className="mb-8 lg:mb-12"
         >
           <p
-            className="text-white text-center"
+            className="text-white text-center text-base sm:text-lg lg:text-[20px]"
             style={{
               fontFamily: 'var(--font-tt-runs)',
-              fontSize: '20px',
               fontWeight: 400,
               lineHeight: '1.7',
             }}
@@ -99,9 +97,9 @@ export function AboutVideo() {
           {/* Left Column */}
           <motion.div variants={fadeInUp} className="text-white">
             <p
+              className="text-base sm:text-lg lg:text-[20px]"
               style={{
                 fontFamily: 'var(--font-tt-runs)',
-                fontSize: '20px',
                 fontWeight: 400,
                 lineHeight: '1.7',
               }}
@@ -127,9 +125,9 @@ export function AboutVideo() {
           {/* Right Column */}
           <motion.div variants={fadeInUp} className="text-white">
             <p
+              className="text-base sm:text-lg lg:text-[20px]"
               style={{
                 fontFamily: 'var(--font-tt-runs)',
-                fontSize: '20px',
                 fontWeight: 400,
                 lineHeight: '1.7',
               }}

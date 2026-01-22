@@ -36,10 +36,9 @@ export function AboutNumbers() {
         >
           <h2>
             <span
-              className="text-white"
+              className="text-white text-3xl sm:text-4xl lg:text-[60px]"
               style={{
                 fontFamily: 'var(--font-tt-runs)',
-                fontSize: '60px',
                 fontWeight: 400,
                 letterSpacing: '-0.02em',
               }}
@@ -47,9 +46,9 @@ export function AboutNumbers() {
               Nossos{' '}
             </span>
             <span
+              className="text-4xl sm:text-5xl lg:text-[96px]"
               style={{
                 fontFamily: 'var(--font-yellowtail)',
-                fontSize: '96px',
                 fontWeight: 400,
                 color: '#FCFF00',
               }}
@@ -84,20 +83,18 @@ export function AboutNumbers() {
                 {stat.number}
               </div>
               <h3
-                className="text-brand-yellow mb-3"
+                className="text-brand-yellow mb-3 text-base sm:text-lg lg:text-[20px]"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '20px',
                   fontWeight: 700,
                 }}
               >
                 {stat.title}
               </h3>
               <p
-                className="text-gray-400"
+                className="text-gray-400 text-sm sm:text-base lg:text-[20px]"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '20px',
                   fontWeight: 400,
                   lineHeight: '1.6',
                 }}
@@ -118,10 +115,9 @@ export function AboutNumbers() {
         >
           <Link
             href="/contato"
-            className="inline-flex items-center justify-center px-8 py-4 bg-brand-yellow text-black font-semibold rounded-full hover:bg-brand-orange hover:text-white transition-all duration-300"
+            className="inline-flex items-center justify-center px-8 py-4 bg-brand-yellow text-black font-semibold rounded-full hover:bg-brand-orange hover:text-white transition-all duration-300 text-base sm:text-lg lg:text-[20px]"
             style={{
               fontFamily: 'var(--font-tt-runs)',
-              fontSize: '20px',
               fontWeight: 600,
             }}
           >

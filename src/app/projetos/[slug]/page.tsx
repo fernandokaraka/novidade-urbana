@@ -234,9 +234,9 @@ function ProjectTitle({ project }: { project: { title: { main: string; highlight
   // Reveillon 2026 tem estilo específico
   if (project.slug === 'reveillon-2026') {
     return (
-      <h1 className="whitespace-nowrap">
+      <h1>
         <span
-          className="text-[3rem] md:text-[5rem] lg:text-[120.99px] text-white"
+          className="text-[2rem] sm:text-[3rem] md:text-[5rem] lg:text-[120.99px] text-white"
           style={{
             fontFamily: 'var(--font-tt-runs)',
             fontWeight: 700,
@@ -247,7 +247,7 @@ function ProjectTitle({ project }: { project: { title: { main: string; highlight
           {project.title.main}
         </span>
         <span
-          className="text-[4rem] md:text-[8rem] lg:text-[189.05px] ml-4"
+          className="text-[2.5rem] sm:text-[4rem] md:text-[8rem] lg:text-[189.05px] ml-2 sm:ml-4"
           style={{
             fontFamily: 'var(--font-yellowtail)',
             fontWeight: 400,
@@ -265,9 +265,9 @@ function ProjectTitle({ project }: { project: { title: { main: string; highlight
   // Feat Jorge e Deus Grande - título em UMA linha com fontes grandes
   if (project.slug === 'feat-jorge' || project.slug === 'deus-grande') {
     return (
-      <h1 className="whitespace-nowrap mb-8 lg:mb-12" style={{ lineHeight: '0.9' }}>
+      <h1 className="mb-8 lg:mb-12" style={{ lineHeight: '0.9' }}>
         <span
-          className="text-[5rem] md:text-[10rem] lg:text-[240px]"
+          className="text-[2.5rem] sm:text-[4rem] md:text-[7rem] lg:text-[180px]"
           style={{
             fontFamily: 'var(--font-yellowtail)',
             fontWeight: 400,
@@ -278,7 +278,7 @@ function ProjectTitle({ project }: { project: { title: { main: string; highlight
           {project.title.highlight}
         </span>
         <span
-          className="text-[4rem] md:text-[8rem] lg:text-[160px] text-white italic ml-4 lg:ml-8"
+          className="text-[2rem] sm:text-[3rem] md:text-[5rem] lg:text-[120px] text-white italic ml-2 sm:ml-4 lg:ml-8"
           style={{
             fontFamily: 'var(--font-tt-runs)',
             fontWeight: 700,

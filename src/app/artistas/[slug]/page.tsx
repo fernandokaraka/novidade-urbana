@@ -96,10 +96,10 @@ function AchievementSection({ achievement, imagePosition = 'right' }: { achievem
 
               {/* Título */}
               <h2
-                className="mb-6"
+                className="mb-6 text-5xl sm:text-6xl lg:text-[90px]"
                 style={{
                   fontFamily: achievement.titleStyle === 'script' ? 'var(--font-yellowtail)' : 'var(--font-tt-runs)',
-                  fontSize: achievement.titleStyle === 'script' ? '90px' : '48px',
+                  fontSize: achievement.titleStyle === 'script' ? undefined : 'clamp(36px, 8vw, 48px)',
                   fontWeight: achievement.titleStyle === 'script' ? 400 : 700,
                   lineHeight: '1',
                   color: '#FFFFFF'
@@ -110,9 +110,9 @@ function AchievementSection({ achievement, imagePosition = 'right' }: { achievem
 
               {/* Texto */}
               <p
+                className="text-base sm:text-lg lg:text-xl"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '20px',
                   fontWeight: 400,
                   lineHeight: '1.6',
                   color: '#FFFFFF'
@@ -234,17 +234,16 @@ function AlternateHeroSection({ artist }: { artist: ArtistData }) {
             ))}
           </motion.div>
 
-          {/* Imagem à direita */}
+          {/* Imagem à direita - escondida no mobile */}
           {artist.heroImage && (
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
-              className="flex-shrink-0 self-start"
+              className="hidden lg:block flex-shrink-0 self-start"
             >
               <div
-                className="relative rounded-2xl overflow-hidden"
-                style={{ width: '550px', height: '360px' }}
+                className="relative rounded-2xl overflow-hidden w-[550px] h-[360px]"
               >
                 <Image
                   src={artist.heroImage}
@@ -349,19 +348,19 @@ function SocialLinksSection({ artist }: { artist: ArtistData }) {
   return (
     <section className="py-12 lg:py-16 bg-black border-t border-b border-white/10">
       <div className="container-site px-4">
-        <div className="flex flex-wrap items-center justify-center gap-6 lg:gap-16">
+        <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-16">
           {artist.socialLinks.instagram && (
             <Link
               href={`https://instagram.com/${artist.socialLinks.instagram.replace('@', '')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 text-white hover:opacity-80 transition-opacity whitespace-nowrap"
+              className="flex items-center gap-3 text-white hover:opacity-80 transition-opacity"
             >
-              <InstagramIcon className="w-8 h-8" />
+              <InstagramIcon className="w-6 h-6 sm:w-8 sm:h-8 flex-shrink-0" />
               <span
+                className="text-sm sm:text-base lg:text-xl"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '20px',
                   fontWeight: 500
                 }}
               >
@@ -375,13 +374,13 @@ function SocialLinksSection({ artist }: { artist: ArtistData }) {
               href={`https://${artist.socialLinks.youtube}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 text-white hover:opacity-80 transition-opacity whitespace-nowrap"
+              className="flex items-center gap-3 text-white hover:opacity-80 transition-opacity"
             >
-              <YoutubeIcon className="w-8 h-8" />
+              <YoutubeIcon className="w-6 h-6 sm:w-8 sm:h-8 flex-shrink-0" />
               <span
+                className="text-sm sm:text-base lg:text-xl truncate max-w-[200px] sm:max-w-none"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '20px',
                   fontWeight: 500
                 }}
               >
@@ -395,13 +394,13 @@ function SocialLinksSection({ artist }: { artist: ArtistData }) {
               href={artist.socialLinks.spotify.startsWith('http') ? artist.socialLinks.spotify : `https://open.spotify.com/search/${encodeURIComponent(artist.socialLinks.spotify)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 text-white hover:opacity-80 transition-opacity whitespace-nowrap"
+              className="flex items-center gap-3 text-white hover:opacity-80 transition-opacity"
             >
-              <SpotifyIcon className="w-8 h-8 text-[#1DB954]" />
+              <SpotifyIcon className="w-6 h-6 sm:w-8 sm:h-8 flex-shrink-0 text-[#1DB954]" />
               <span
+                className="text-sm sm:text-base lg:text-xl"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '20px',
                   fontWeight: 500
                 }}
               >
@@ -433,16 +432,15 @@ function DefaultHeroSection({ artist }: { artist: ArtistData }) {
       </div>
 
       <div className="container-site relative z-10 px-4">
-        <div className="flex flex-col lg:flex-row items-center" style={{ gap: '30px' }}>
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-[30px]">
           {/* Foto do artista à esquerda */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            className="relative flex-shrink-0"
+            className="relative flex-shrink-0 w-full lg:w-auto"
           >
             <div
-              className="relative rounded-2xl overflow-hidden"
-              style={{ width: '400px', height: '500px' }}
+              className="relative rounded-2xl overflow-hidden w-full lg:w-[400px] h-[350px] lg:h-[500px]"
             >
               <Image
                 src={artist.photo}
@@ -460,13 +458,14 @@ function DefaultHeroSection({ artist }: { artist: ArtistData }) {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
+            className="w-full"
           >
             {/* Nome */}
             <h1
-              className="mb-8 whitespace-nowrap"
+              className="mb-8"
               style={{
                 fontFamily: 'var(--font-tt-runs)',
-                fontSize: 'clamp(2.5rem, 6vw, 90px)',
+                fontSize: 'clamp(2rem, 6vw, 90px)',
                 fontWeight: 400,
                 lineHeight: '1',
                 color: '#FFFFFF',
@@ -483,7 +482,7 @@ function DefaultHeroSection({ artist }: { artist: ArtistData }) {
                   key={index}
                   style={{
                     fontFamily: 'var(--font-tt-runs)',
-                    fontSize: '20px',
+                    fontSize: '18px',
                     fontWeight: 400,
                     lineHeight: '1.6',
                     color: '#94969C'
@@ -501,7 +500,7 @@ function DefaultHeroSection({ artist }: { artist: ArtistData }) {
                 style={{
                   backgroundColor: '#FCFF00',
                   fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '20px',
+                  fontSize: '18px',
                   fontWeight: 400,
                   lineHeight: '1.6',
                   color: '#000000'
@@ -530,7 +529,7 @@ export default function ArtistPage() {
 
   return (
     <PublicLayout>
-      <div className="bg-black">
+      <div className="bg-black overflow-x-hidden">
         {/* Hero Section - layout condicional */}
         {isAlternateLayout ? (
           <AlternateHeroSection artist={artist} />

@@ -415,7 +415,7 @@ function FestivalSectionComponent({ section }: { section: FestivalSection }) {
       variants={fadeInUp}
       className="mb-12"
     >
-      <div className="flex flex-col lg:flex-row gap-8 items-center mb-8">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-center mb-8">
         <div className="flex-shrink-0 w-full lg:w-[40%]">
           <Image
             src={section.image}
@@ -428,9 +428,9 @@ function FestivalSectionComponent({ section }: { section: FestivalSection }) {
         <div className="flex-1 lg:w-[60%] flex flex-col justify-center">
           <h3 className="mb-4">
             <span
+              className="text-3xl sm:text-4xl lg:text-[57px]"
               style={{
                 fontFamily: 'var(--font-tt-runs)',
-                fontSize: '57px',
                 fontWeight: 700,
                 color: '#FFFFFF',
               }}
@@ -438,9 +438,9 @@ function FestivalSectionComponent({ section }: { section: FestivalSection }) {
               {section.title}{' '}
             </span>
             <span
+              className="text-4xl sm:text-5xl lg:text-[76px]"
               style={{
                 fontFamily: 'var(--font-yellowtail)',
-                fontSize: '76px',
                 fontWeight: 400,
                 color: '#FCFF00',
               }}
@@ -449,9 +449,9 @@ function FestivalSectionComponent({ section }: { section: FestivalSection }) {
             </span>
           </h3>
           <p
+            className="text-base sm:text-lg lg:text-[22px]"
             style={{
               fontFamily: 'var(--font-tt-runs)',
-              fontSize: '22px',
               fontWeight: 400,
               lineHeight: '1.7',
               color: '#94969C',
@@ -464,10 +464,9 @@ function FestivalSectionComponent({ section }: { section: FestivalSection }) {
       {section.additionalParagraphs.map((p, i) => (
         <p
           key={i}
-          className="mb-4"
+          className="mb-4 text-base sm:text-lg lg:text-[22px]"
           style={{
             fontFamily: 'var(--font-tt-runs)',
-            fontSize: '22px',
             fontWeight: 400,
             lineHeight: '1.6',
             color: '#94969C',
@@ -492,13 +491,12 @@ function AudiovisualSectionComponent({ section }: { section: AudiovisualSection 
       variants={fadeInUp}
       className="mb-12"
     >
-      <div className="flex flex-col lg:flex-row gap-12 items-center">
+      <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
         <div className={isSingleImage ? 'w-full lg:w-[35%] text-left' : 'flex-1'}>
           <h3
-            className="mb-6"
+            className="mb-4 lg:mb-6 text-3xl sm:text-4xl lg:text-[57px]"
             style={{
               fontFamily: 'var(--font-tt-runs)',
-              fontSize: '57px',
               fontWeight: 700,
               color: '#FCFF00',
             }}
@@ -508,10 +506,9 @@ function AudiovisualSectionComponent({ section }: { section: AudiovisualSection 
           {section.paragraphs.map((p, i) => (
             <p
               key={i}
-              className="mb-4"
+              className="mb-4 text-base sm:text-lg lg:text-[22px]"
               style={{
                 fontFamily: 'var(--font-tt-runs)',
-                fontSize: '22px',
                 fontWeight: 400,
                 lineHeight: '1.7',
                 color: '#94969C',
@@ -548,7 +545,7 @@ function SpiritualTurnSectionComponent({ section }: { section: SpiritualTurnSect
       variants={fadeInUp}
       className="mb-12"
     >
-      <div className="flex flex-col lg:flex-row gap-8 items-start">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
         <div className="flex-shrink-0 w-full lg:w-[45%]">
           <Image
             src={section.image}
@@ -560,10 +557,9 @@ function SpiritualTurnSectionComponent({ section }: { section: SpiritualTurnSect
         </div>
         <div className="flex-1 lg:w-[55%]">
           <h3
-            className="mb-6"
+            className="mb-4 lg:mb-6 text-xl sm:text-2xl lg:text-[32px]"
             style={{
               fontFamily: 'var(--font-tt-runs)',
-              fontSize: '32px',
               fontWeight: 700,
               color: '#FCFF00',
             }}
@@ -571,10 +567,9 @@ function SpiritualTurnSectionComponent({ section }: { section: SpiritualTurnSect
             {section.title}
           </h3>
           <p
-            className="mb-6"
+            className="mb-4 lg:mb-6 text-base sm:text-lg lg:text-[22px]"
             style={{
               fontFamily: 'var(--font-tt-runs)',
-              fontSize: '22px',
               fontWeight: 400,
               lineHeight: '1.7',
               color: '#94969C',
@@ -583,10 +578,9 @@ function SpiritualTurnSectionComponent({ section }: { section: SpiritualTurnSect
             {section.introParagraph}
           </p>
           <h4
-            className="mb-4"
+            className="mb-3 lg:mb-4 text-xl sm:text-2xl lg:text-[32px]"
             style={{
               fontFamily: 'var(--font-tt-runs)',
-              fontSize: '32px',
               fontWeight: 700,
               color: '#94969C',
             }}
@@ -597,9 +591,9 @@ function SpiritualTurnSectionComponent({ section }: { section: SpiritualTurnSect
             {section.items.map((item, i) => (
               <li
                 key={i}
+                className="text-base sm:text-lg lg:text-[22px]"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '22px',
                   fontWeight: 400,
                   lineHeight: '1.6',
                   color: '#94969C',
@@ -625,14 +619,13 @@ function PartnershipSectionComponent({ section }: { section: PartnershipSection 
       variants={fadeInUp}
       className="mb-12"
     >
-      <div className="flex flex-col lg:flex-row gap-8 items-center">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-center">
         <div className="flex-1 lg:w-[55%]">
-          <h3 className="mb-6">
+          <h3 className="mb-4 lg:mb-6">
             <span
-              className="block"
+              className="block text-xl sm:text-2xl lg:text-[32px]"
               style={{
                 fontFamily: 'var(--font-tt-runs)',
-                fontSize: '32px',
                 fontWeight: 700,
                 color: '#94969C',
               }}
@@ -641,10 +634,9 @@ function PartnershipSectionComponent({ section }: { section: PartnershipSection 
             </span>
             {section.titleHighlight && (
               <span
-                className="block"
+                className="block text-xl sm:text-2xl lg:text-[32px]"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '32px',
                   fontWeight: 700,
                   color: '#FCFF00',
                 }}
@@ -656,10 +648,9 @@ function PartnershipSectionComponent({ section }: { section: PartnershipSection 
           {section.paragraphs.map((p, i) => (
             <p
               key={i}
-              className="mb-4"
+              className="mb-4 text-base sm:text-lg lg:text-[22px]"
               style={{
                 fontFamily: 'var(--font-tt-runs)',
-                fontSize: '22px',
                 fontWeight: 400,
                 lineHeight: '1.7',
                 color: '#94969C',
@@ -670,13 +661,13 @@ function PartnershipSectionComponent({ section }: { section: PartnershipSection 
           ))}
         </div>
         {section.logo && (
-          <div className="flex-shrink-0 lg:w-[45%]">
+          <div className="flex-shrink-0 w-full lg:w-[45%]">
             <Image
               src={section.logo}
               alt=""
               width={400}
               height={400}
-              className="object-contain w-full h-auto"
+              className="object-contain w-full h-auto max-w-[280px] mx-auto lg:max-w-none"
             />
           </div>
         )}
@@ -695,11 +686,11 @@ function LegacySectionComponent({ section }: { section: LegacySection }) {
       variants={fadeInUp}
       className="mb-12"
     >
-      <h3 className="mb-6">
+      <h3 className="mb-4 lg:mb-6">
         <span
+          className="text-3xl sm:text-4xl lg:text-[64px]"
           style={{
             fontFamily: 'var(--font-tt-runs)',
-            fontSize: '64px',
             fontWeight: 700,
             color: '#FFFFFF',
           }}
@@ -707,9 +698,9 @@ function LegacySectionComponent({ section }: { section: LegacySection }) {
           {section.title}{' '}
         </span>
         <span
+          className="text-4xl sm:text-5xl lg:text-[96px]"
           style={{
             fontFamily: 'var(--font-yellowtail)',
-            fontSize: '96px',
             fontWeight: 400,
             color: '#FCFF00',
           }}
@@ -718,10 +709,9 @@ function LegacySectionComponent({ section }: { section: LegacySection }) {
         </span>
       </h3>
       <p
-        className="mb-6"
+        className="mb-4 lg:mb-6 text-base sm:text-lg lg:text-[22px]"
         style={{
           fontFamily: 'var(--font-tt-runs)',
-          fontSize: '22px',
           fontWeight: 400,
           lineHeight: '1.7',
           color: '#94969C',
@@ -730,23 +720,22 @@ function LegacySectionComponent({ section }: { section: LegacySection }) {
         {section.introParagraph}
       </p>
       <h4
-        className="mb-4"
+        className="mb-3 lg:mb-4 text-base sm:text-lg lg:text-[22px]"
         style={{
           fontFamily: 'var(--font-tt-runs)',
-          fontSize: '22px',
           fontWeight: 700,
           color: '#FCFF00',
         }}
       >
         {section.highlightTitle}
       </h4>
-      <ul className="space-y-2 mb-6">
+      <ul className="space-y-2 mb-4 lg:mb-6">
         {section.items.map((item, i) => (
           <li
             key={i}
+            className="text-base sm:text-lg lg:text-[22px]"
             style={{
               fontFamily: 'var(--font-tt-runs)',
-              fontSize: '22px',
               fontWeight: 400,
               lineHeight: '1.6',
               color: '#94969C',
@@ -759,10 +748,9 @@ function LegacySectionComponent({ section }: { section: LegacySection }) {
       {section.closingParagraphs.map((p, i) => (
         <p
           key={i}
-          className="mb-4"
+          className="mb-4 text-base sm:text-lg lg:text-[22px]"
           style={{
             fontFamily: 'var(--font-tt-runs)',
-            fontSize: '22px',
             fontWeight: 400,
             lineHeight: '1.7',
             color: '#94969C',

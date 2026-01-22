@@ -43,10 +43,9 @@ export function AboutHero() {
             {/* Title */}
             <h1 className="mb-6 lg:mb-8">
               <span
-                className="block text-white"
+                className="block text-white text-3xl sm:text-4xl lg:text-[60px]"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '60px',
                   fontWeight: 400,
                   lineHeight: '1.1',
                   letterSpacing: '-0.02em',
@@ -54,9 +53,9 @@ export function AboutHero() {
               >
                 A{' '}
                 <span
+                  className="text-4xl sm:text-5xl lg:text-[96px]"
                   style={{
                     fontFamily: 'var(--font-yellowtail)',
-                    fontSize: '96px',
                     fontWeight: 400,
                     color: '#FCFF00',
                   }}
@@ -66,10 +65,9 @@ export function AboutHero() {
                 {' '}da
               </span>
               <span
-                className="block text-white"
+                className="block text-white text-3xl sm:text-4xl lg:text-[60px]"
                 style={{
                   fontFamily: 'var(--font-tt-runs)',
-                  fontSize: '60px',
                   fontWeight: 400,
                   lineHeight: '1.1',
                   letterSpacing: '-0.02em',
@@ -81,10 +79,9 @@ export function AboutHero() {
 
             {/* Description */}
             <p
-              className="mb-8 max-w-lg"
+              className="mb-8 max-w-lg text-base sm:text-lg lg:text-[20px]"
               style={{
                 fontFamily: 'var(--font-tt-runs)',
-                fontSize: '20px',
                 fontWeight: 400,
                 lineHeight: '1.6',
                 color: '#FFFFFF',
