@@ -35,7 +35,7 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="relative bg-black min-h-[90svh] lg:min-h-[85vh] overflow-hidden">
+    <section className="relative bg-black min-h-[92svh] lg:min-h-[85vh] overflow-hidden">
       {/* Background Texture */}
       <div className="absolute inset-0">
         <Image
@@ -47,8 +47,8 @@ export function Hero() {
         />
       </div>
 
-      <div className="container-site relative z-10 min-h-[90svh] lg:min-h-[85vh] px-4">
-        <div className="relative min-h-[90svh] lg:min-h-[85vh]">
+      <div className="container-site relative z-10 min-h-[92svh] lg:min-h-[85vh] px-4">
+        <div className="relative min-h-[92svh] lg:min-h-[85vh]">
           {/* Text Content - Left Side */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
