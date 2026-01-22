@@ -41,6 +41,21 @@ export function FeaturedArtists() {
           sizes="100vw"
         />
       </div>
+      {/* Gradient overlay for mobile - fade from transparent to black */}
+      <div
+        className="absolute inset-x-0 lg:hidden pointer-events-none"
+        style={{
+          top: '380px',
+          height: '150px',
+          background: 'linear-gradient(to bottom, transparent, black)'
+        }}
+      />
+      <div
+        className="absolute inset-x-0 bottom-0 lg:hidden pointer-events-none bg-black"
+        style={{
+          top: '530px',
+        }}
+      />
 
       <div className="container-site relative z-10 px-4">
         {/* Title */}

@@ -35,7 +35,7 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="relative bg-black min-h-[100svh] lg:min-h-[85vh] overflow-hidden">
+    <section className="relative bg-black min-h-[85svh] lg:min-h-[85vh] overflow-hidden">
       {/* Background Texture */}
       <div className="absolute inset-0">
         <Image
@@ -47,14 +47,14 @@ export function Hero() {
         />
       </div>
 
-      <div className="container-site relative z-10 min-h-[100svh] lg:min-h-[85vh] px-4">
-        <div className="relative lg:min-h-[85vh]">
+      <div className="container-site relative z-10 min-h-[85svh] lg:min-h-[85vh] px-4">
+        <div className="relative min-h-[85svh] lg:min-h-[85vh]">
           {/* Text Content - Left Side */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col justify-start lg:justify-end pt-36 lg:pt-0 pb-[45vh] lg:pb-32 lg:min-h-[85vh] max-w-xl"
+            className="flex flex-col justify-start lg:justify-end pt-28 lg:pt-0 pb-8 lg:pb-32 lg:min-h-[85vh] max-w-xl"
           >
             {/* Main Headline */}
             <h1 className="mb-8">
@@ -162,7 +162,7 @@ export function Hero() {
           </motion.div>
 
           {/* Image Carousel - Right Side */}
-          <div className="absolute -bottom-44 lg:-bottom-8 right-0 w-full lg:w-[55%] h-[75vh] lg:h-[80vh]">
+          <div className="absolute -bottom-8 lg:-bottom-8 right-0 w-full lg:w-[55%] h-[55vh] lg:h-[80vh]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
