@@ -7,6 +7,7 @@ export interface ContentBlock {
   image?: string
   imageAlt?: string
   imagePosition?: 'left' | 'right'
+  videoUrl?: string
   videoThumbnail?: string
   videoBadge?: string
   // Para hero-images (duas imagens lado a lado)
@@ -124,6 +125,7 @@ export const projectsData: ProjectData[] = [
     content: [
       {
         type: 'video',
+        videoUrl: 'https://www.youtube.com/watch?v=ADrp_jMDo0E',
         videoThumbnail: '/images/artists/deus-e-grande-individual-img-1.png',
         videoBadge: 'AO VIVO'
       },

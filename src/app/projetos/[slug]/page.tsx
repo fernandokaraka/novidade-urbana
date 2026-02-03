@@ -169,8 +169,30 @@ function TextImageBlock({ block }: { block: ContentBlock }) {
   )
 }
 
+// Extrai o ID do YouTube a partir de URLs como youtube.com/watch?v=ID ou youtu.be/ID
+function getYouTubeId(url: string): string | null {
+  const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\s]+)/)
+  return match ? match[1] : null
+}
+
 // Componente de bloco de vídeo
 function VideoBlock({ block }: { block: ContentBlock }) {
+  const youtubeId = block.videoUrl ? getYouTubeId(block.videoUrl) : null
+
+  if (youtubeId) {
+    return (
+      <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
+        <iframe
+          src={`https://www.youtube.com/embed/${youtubeId}`}
+          title="YouTube video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="absolute inset-0 w-full h-full"
+        />
+      </div>
+    )
+  }
+
   return (
     <div className="relative w-full aspect-video rounded-2xl overflow-hidden group cursor-pointer">
       <Image
