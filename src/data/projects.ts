@@ -114,31 +114,6 @@ export const projectsData: ProjectData[] = [
         highlightedNames: [{ name: 'Avenida do Arrependimento' }]
       }
     ]
-  },
-  {
-    slug: 'deus-grande',
-    title: {
-      main: 'Grande',
-      highlight: 'Deus',
-      highlightFont: 'yellowtail'
-    },
-    content: [
-      {
-        type: 'video',
-        videoUrl: 'https://www.youtube.com/watch?v=ADrp_jMDo0E',
-        videoThumbnail: '/images/artists/deus-e-grande-individual-img-1.png',
-        videoBadge: 'AO VIVO'
-      },
-      {
-        type: 'text',
-        text: 'Deus é Grande, interpretada por Marcelo Aguiar, é uma das canções mais emblemáticas e emocionantes do repertório do cantor. Marcada por um momento de forte afirmação da música cristã no país, a canção se tornou um verdadeiro hino de exaltação, destacando a soberania, o poder e a grandeza de Deus com uma linguagem direta e impactante.',
-        highlightedNames: [{ name: 'Deus é Grande, interpretada por Marcelo Aguiar,' }]
-      },
-      {
-        type: 'text',
-        text: 'A música marcou gerações, ultrapassou barreiras dentro do segmento gospel e ajudou a consolidar Marcelo Aguiar como uma das vozes mais relevantes do cenário cristão nacional. Deus é Grande soma milhões de reproduções nas plataformas digitais, além de forte presença história em cultos, eventos e apresentações ao vivo, mantendo-se atual mesmo após anos de lançamento. Sua importância está não apenas nos números expressivos, mas no legado espiritual e cultural que a canção carrega até hoje.'
-      }
-    ]
   }
 ]
 

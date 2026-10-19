@@ -65,32 +65,6 @@ export const artistsData: ArtistData[] = [
     ]
   },
   {
-    slug: 'marcelo-aguiar',
-    name: 'Marcelo Aguiar',
-    bio: [
-      'Marcelo Aguiar é cantor, compositor e uma das vozes mais marcantes do gospel nacional, reconhecido por sua trajetória à frente da banda Katsbarnea e por sua forte identidade no rock cristão brasileiro. Sua música sempre esteve ligada a mensagens diretas, intensidade espiritual e compromisso com a fé.'
-    ],
-    highlightedBio: 'Ao longo de sua carreira, Marcelo construiu um legado de autenticidade e impacto, influenciando gerações e mantendo uma presença sólida no cenário gospel por meio de projetos relevantes, testemunho pessoal e canções que comunicam transformação e esperança.',
-    photo: '/images/artists/marcelo-aguiar-home.png',
-    photoAlt: 'Marcelo Aguiar',
-    socialLinks: {
-      instagram: '@marceloaguiaroficial',
-      youtube: 'www.youtube.com/@marceloaguiaroficial',
-      spotify: 'https://open.spotify.com/artist/4rPyEmsi5v4OiQyfzZBsLJ'
-    },
-    achievements: [
-      {
-        badge: 'Sucessos',
-        title: 'Deus Grande',
-        titleStyle: 'bold',
-        text: '"Escolhemos essa música por trazer uma forte mensagem sobre a importância de levar a palavra de Deus e sua mensagem de fé e perseverança; a música já está sendo cantada nas igrejas em seus grupos de louvores, esse é nosso maior termômetro da força que ela tem de elevar e emocionar as pessoas", conta Marcelo.',
-        image: '/images/artists/deus-grande-secao-2.png',
-        imageAlt: 'Capa do single Deus Grande',
-        imageAlignment: 'center'
-      }
-    ]
-  },
-  {
     slug: 'marcados',
     name: 'Marcados',
     layoutType: 'alternate',

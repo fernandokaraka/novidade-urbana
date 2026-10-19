@@ -248,7 +248,7 @@ export const directors: Director[] = [
     currentRole: {
       title: 'Atuação Atual',
       description: [
-        'Atualmente, à frente da Novidade Urbana, Marcos Ascena lidera e cuida diretamente do desenvolvimento estratégico e da gestão de carreira de artistas relevantes da música brasileira, incluindo Thalles Roberto, o Grupo Marcados e o cantor Marcelo Aguiar. Sua atuação envolve planejamento de carreira, estruturação de projetos artísticos, produção executiva, posicionamento de mercado, gestão de agenda, desenvolvimento de novos projetos e expansão nacional e internacional, sempre com uma visão contemporânea, profissional e sustentável.',
+        'Atualmente, à frente da Novidade Urbana, Marcos Ascena lidera e cuida diretamente do desenvolvimento estratégico e da gestão de carreira de artistas relevantes da música brasileira, incluindo Thalles Roberto e o Grupo Marcados. Sua atuação envolve planejamento de carreira, estruturação de projetos artísticos, produção executiva, posicionamento de mercado, gestão de agenda, desenvolvimento de novos projetos e expansão nacional e internacional, sempre com uma visão contemporânea, profissional e sustentável.',
         'Seu trabalho é guiado por valores sólidos, ética, responsabilidade, compromisso com pessoas e projetos e uma busca constante por excelência, consolidando sua atuação como um profissional capaz de transformar ideias artísticas em projetos consistentes, relevantes e culturalmente impactantes.',
       ],
     },

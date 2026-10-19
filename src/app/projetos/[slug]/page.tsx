@@ -284,8 +284,8 @@ function ProjectTitle({ project }: { project: { title: { main: string; highlight
     )
   }
 
-  // Feat Jorge e Deus Grande - título em UMA linha com fontes grandes
-  if (project.slug === 'feat-jorge' || project.slug === 'deus-grande') {
+  // Feat Jorge - título em UMA linha com fontes grandes
+  if (project.slug === 'feat-jorge') {
     return (
       <h1 className="mb-8 lg:mb-12" style={{ lineHeight: '0.9' }}>
         <span

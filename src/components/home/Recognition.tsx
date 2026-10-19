@@ -28,13 +28,6 @@ const recognitionItems = [
     description: 'Produção Dudu Borges',
     photo: '/images/projects/av-do-arrependimento-card-home-bg.png',
   },
-  {
-    title: 'DEUS GRANDE',
-    description: 'Marcelo Aguiar',
-    photo: '/images/projects/deus-grande-card-home-bg.png',
-    slug: 'deus-grande',
-    imagePosition: 'top',
-  }
 ]
 
 export function Recognition() {
@@ -161,8 +154,8 @@ export function Recognition() {
             })}
           </div>
 
-          {/* Second Row - 3 equal columns on desktop, stacked on mobile */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Second Row - 30/70 split on desktop (espelha a primeira linha), stacked on mobile */}
+          <div className="grid grid-cols-1 lg:grid-cols-[3fr_7fr] gap-6">
           {recognitionItems.slice(2).map((item, index) => {
             const CardContent = (
               <>
@@ -171,7 +164,6 @@ export function Recognition() {
                   alt={item.title}
                   fill
                   className={`object-cover ${item.slug ? 'group-hover:scale-105 transition-transform duration-300' : ''}`}
-                  style={item.imagePosition ? { objectPosition: item.imagePosition } : undefined}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">

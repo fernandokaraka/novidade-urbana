@@ -105,7 +105,7 @@ export function AboutVideo() {
               }}
             >
               <span className="text-brand-yellow font-bold">
-                Representamos talentos como Thalles Roberto, Marcelo Aguiar e Marcados Gospel,
+                Representamos talentos como Thalles Roberto e Marcados Gospel,
               </span>{' '}
               e têm se destacado por projetos especiais e colaborações artísticas.
             </p>

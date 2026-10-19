@@ -16,11 +16,6 @@ const heroImages = [
     alt: 'Marcados',
     offsetY: '-40px', // Reduzido para ficar mais no fundo
   },
-  {
-    src: '/images/hero/marcelo-aguiar-hero-home.png',
-    alt: 'Marcelo Aguiar',
-    offsetY: '0',
-  },
 ]
 
 export function Hero() {

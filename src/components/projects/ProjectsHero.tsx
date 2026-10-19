@@ -29,12 +29,6 @@ const recognitionItems = [
     photo: '/images/projects/av-do-arrependimento-card-home-bg.png',
     slug: 'feat-jorge',
   },
-  {
-    title: 'DEUS GRANDE',
-    description: 'Marcelo Aguiar',
-    photo: '/images/projects/deus-grande-card-home-bg.png',
-    slug: 'deus-grande',
-  }
 ]
 
 export function ProjectsHero() {
@@ -76,7 +70,7 @@ export function ProjectsHero() {
         </motion.div>
 
         {/* Grid Layout */}
-        <div className="grid lg:grid-cols-[70%_30%] gap-6 mb-12">
+        <div className="grid lg:grid-cols-[7fr_3fr] gap-6 mb-6">
           {/* Large Cards */}
           {recognitionItems.slice(0, 2).map((item, index) => (
             <Link key={item.title} href={`/projetos/${item.slug}`}>
@@ -125,8 +119,8 @@ export function ProjectsHero() {
           ))}
         </div>
 
-        {/* Small Cards Row */}
-        <div className="grid lg:grid-cols-3 gap-6 mb-8">
+        {/* Second Row - 30/70 (espelha a primeira linha) */}
+        <div className="grid lg:grid-cols-[3fr_7fr] gap-6 mb-8">
           {recognitionItems.slice(2).map((item, index) => (
             <Link key={item.title} href={`/projetos/${item.slug}`}>
               <motion.div
