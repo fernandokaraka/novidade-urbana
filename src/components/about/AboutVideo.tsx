@@ -8,60 +8,6 @@ export function AboutVideo() {
   return (
     <section className="bg-black py-8 lg:py-12">
       <div className="container-site px-4">
-        {/* Title */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-          className="text-center mb-12"
-        >
-          <h2>
-            <span
-              className="text-white text-3xl sm:text-4xl lg:text-[60px]"
-              style={{
-                fontFamily: 'var(--font-tt-runs)',
-                fontWeight: 400,
-                letterSpacing: '-0.02em',
-              }}
-            >
-              Confira no{' '}
-            </span>
-            <span
-              className="text-4xl sm:text-5xl lg:text-[96px]"
-              style={{
-                fontFamily: 'var(--font-yellowtail)',
-                fontWeight: 400,
-                color: '#FCFF00',
-              }}
-            >
-              Youtube
-            </span>
-          </h2>
-        </motion.div>
-
-        {/* Video Embed */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-          className="relative mb-12 lg:mb-16"
-        >
-          <div
-            className="relative w-full aspect-video rounded-2xl overflow-hidden"
-            style={{ maxWidth: '900px', margin: '0 auto' }}
-          >
-            <iframe
-              className="absolute inset-0 w-full h-full"
-              src="https://www.youtube.com/embed/ADrp_jMDo0E?rel=0"
-              title="YouTube video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
-        </motion.div>
-
         {/* Description Text */}
         <motion.div
           initial="hidden"
