@@ -8,6 +8,7 @@ const navLinks = [
   { href: '/artistas', label: 'Artistas' },
   { href: '/diretores', label: 'Diretores' },
   { href: '/sobre', label: 'Sobre nós' },
+  { href: '/ebook', label: 'Ebook' },
   { href: '/contato', label: 'Contato' },
 ]
 

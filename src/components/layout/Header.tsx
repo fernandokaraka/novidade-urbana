@@ -14,6 +14,7 @@ const navLinks = [
   { href: '/artistas', label: 'Artistas' },
   { href: '/diretores', label: 'Diretores' },
   { href: '/sobre', label: 'Sobre nós' },
+  { href: '/ebook', label: 'Ebook' },
   { href: '/contato', label: 'Contato' },
 ]
 
@@ -52,7 +53,7 @@ export function Header() {
             paddingRight: '50px',
           }}
         >
-          <div className="flex items-center justify-center h-20 gap-12">
+          <div className="flex items-center justify-center h-20 gap-8 xl:gap-12">
             {/* Logo */}
             <Link href="/" className="flex items-center flex-shrink-0 h-full py-4">
               <Image
@@ -65,7 +66,7 @@ export function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-10">
+            <nav className="hidden lg:flex items-center gap-7 xl:gap-10">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
