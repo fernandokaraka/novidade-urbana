@@ -168,6 +168,8 @@ export interface Director {
   }
   // Campos específicos para páginas customizadas
   statementText?: string
+  // Vários parágrafos abaixo do hero (o ícone de setas fica ao lado do último)
+  statementParagraphs?: string[]
   timeline?: TimelineEntry[]
   highlightProjects?: {
     introItems: string[]
@@ -501,7 +503,7 @@ export const directors: Director[] = [
     photo: '/images/directors/fabio-principe-img-home-nova.png',
     instagram: '@fabiouniverso',
     backgroundImage: '/images/backgrounds/background-doninha.png',
-    shortBio: 'Empresário e produtor artístico com mais de 20 anos de experiência em negócios, cultura e entretenimento, especializado em produção musical, estratégia corporativa e gestão cultural de grande escala. Reconhecido internacionalmente por sua atuação como produtor e empresário do cantor Thalles Roberto, vencedor do Grammy Latino 2024 de Melhor Álbum Gospel, e por ser o responsável pelo impulsionamento da carreira do cantor Victin, maior artista de trap gospel no Brasil, além da gestão do grupo Marcados [Pagode Gospel], o maior do ritmo na América Latina.',
+    shortBio: 'Fábio Príncipe é empresário, escritor e produtor artístico, com mais de 20 anos de experiência nos setores de comércio atacadista e varejista, importação e exportação, construção civil, cultura e entretenimento. Sua trajetória empresarial é marcada pela visão estratégica, capacidade de gestão, desenvolvimento de negócios e expansão de operações em diferentes segmentos do mercado.',
     fullBio: [],
     gallery: [],
     projects: [],
@@ -510,7 +512,11 @@ export const directors: Director[] = [
       title: '',
       description: [],
     },
-    statementText: 'Fundador de empresas líderes nos setores de varejo, atacado, produção artística e comércio internacional, com impacto direto no crescimento econômico, geração de empregos, valorização cultural e transformação social.',
+    statementParagraphs: [
+      'Em 2022, fundou a Novidade Urbana Produções Artísticas, consolidando sua atuação na indústria musical e no entretenimento. Ganhou projeção internacional pelo trabalho com artistas como Thalles Roberto, Victin, considerado um dos principais nomes do trap gospel brasileiro, e o Grupo Marcados.',
+      'Participou da realização do Ore Comigo Festival, evento que reuniu mais de 60 mil pessoas, e foi protagonista do documentário Gabi: A Vitória de um Príncipe [2024], produção que apresenta uma história de fé, superação e amor familiar.',
+      'Na Novidade Urbana, lidera a área de Estratégia, Administração e Finanças, sendo responsável pelo planejamento estratégico, governança corporativa, gestão financeira e expansão dos negócios do grupo, com atuação no Brasil e nos Estados Unidos.',
+    ],
     timeline: [
       {
         company: 'Novidade Urbana Produções Artísticas',

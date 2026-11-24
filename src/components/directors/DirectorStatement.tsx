@@ -9,10 +9,40 @@ interface DirectorStatementProps {
   director: Director
 }
 
+const paragraphStyle = {
+  fontFamily: 'var(--font-tt-runs)',
+  fontSize: '20px',
+  fontWeight: 400,
+  lineHeight: '1.7',
+  color: '#94969C',
+} as const
+
+function ArrowsIcon() {
+  return (
+    <div className="flex-shrink-0 hidden lg:block">
+      <Image
+        src="/images/directors/fabio-principe/setas.svg"
+        alt="Setas decorativas"
+        width={180}
+        height={180}
+      />
+    </div>
+  )
+}
+
 export function DirectorStatement({ director }: DirectorStatementProps) {
-  if (!director.statementText) {
+  const paragraphs =
+    director.statementParagraphs && director.statementParagraphs.length > 0
+      ? director.statementParagraphs
+      : director.statementText
+        ? [director.statementText]
+        : []
+
+  if (paragraphs.length === 0) {
     return null
   }
+
+  const lastIndex = paragraphs.length - 1
 
   return (
     <section className="py-12 lg:py-16">
@@ -20,32 +50,25 @@ export function DirectorStatement({ director }: DirectorStatementProps) {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           variants={fadeInUp}
-          className="flex items-center gap-12"
+          className="space-y-10 lg:space-y-14"
         >
-          <p
-            className="max-w-3xl"
-            style={{
-              fontFamily: 'var(--font-tt-runs)',
-              fontSize: '20px',
-              fontWeight: 400,
-              lineHeight: '1.7',
-              color: '#94969C',
-            }}
-          >
-            {director.statementText}
-          </p>
-
-          {/* Ícone de setas amarelas */}
-          <div className="flex-shrink-0 hidden lg:block">
-            <Image
-              src="/images/directors/fabio-principe/setas.svg"
-              alt="Setas decorativas"
-              width={180}
-              height={180}
-            />
-          </div>
+          {paragraphs.map((text, index) =>
+            index === lastIndex ? (
+              // Ícone de setas amarelas ao lado do último parágrafo
+              <div key={index} className="flex items-center gap-12">
+                <p className="max-w-3xl" style={paragraphStyle}>
+                  {text}
+                </p>
+                <ArrowsIcon />
+              </div>
+            ) : (
+              <p key={index} className="max-w-3xl" style={paragraphStyle}>
+                {text}
+              </p>
+            )
+          )}
         </motion.div>
       </div>
     </section>
