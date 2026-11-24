@@ -7,6 +7,6 @@ export const ebook = {
   // Mockup (tablet + celular) com brilho amarelo sobre fundo preto - página /ebook
   mockup: '/images/ebook/mockup-a-resposta.jpg',
   // Mockup sobre a plateia em preto e branco - slide da Hero da Home
-  heroImage: '/images/hero/amazon-hero-mockup.jpg',
+  heroImage: '/images/hero/amazon-hero-ebook.webp',
   amazonLogo: '/images/ebook/amazon-logo.svg',
 }
