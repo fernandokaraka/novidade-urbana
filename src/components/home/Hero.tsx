@@ -124,34 +124,25 @@ function EbookHeadline() {
   )
 }
 
-// Fundo do slide do Ebook: plateia + mockup do livro, encostado na direita
-function EbookBackground() {
+// Mockup do livro sobre a plateia (bordas já esmaecidas no próprio arquivo)
+function EbookImage() {
   return (
-    <div className="absolute inset-0 bg-black">
-      <a
-        href={ebook.amazonUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Comprar o livro A Resposta na Amazon"
-        className={cn(
-          'absolute right-0 bottom-0 w-full aspect-[1539/1425] max-h-[52%]',
-          '[mask-image:linear-gradient(to_bottom,transparent,black_30%)]',
-          'lg:top-0 lg:aspect-auto lg:max-h-none lg:h-full lg:w-[56%] xl:w-[64%]',
-          'lg:[mask-image:linear-gradient(to_right,transparent,black_30%)]'
-        )}
-      >
-        <Image
-          src={ebook.heroImage}
-          alt="Livro A Resposta em tablet e celular, sobre uma plateia em show"
-          fill
-          sizes="(min-width: 1024px) 64vw, 100vw"
-          className="object-contain object-bottom lg:object-cover lg:object-[50%_20%]"
-          priority
-        />
-        {/* Suaviza a borda superior da imagem atrás do menu */}
-        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black to-transparent" />
-      </a>
-    </div>
+    <a
+      href={ebook.amazonUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Comprar o livro A Resposta na Amazon"
+      className="pointer-events-auto absolute bottom-0 right-0 w-full max-w-[460px] sm:max-w-[520px] max-h-[46%] aspect-[1539/1425] lg:max-w-none lg:max-h-none lg:w-auto lg:h-[78%] lg:bottom-[4%] lg:-right-6"
+    >
+      <Image
+        src={ebook.heroImage}
+        alt="Livro A Resposta em tablet e celular, sobre uma plateia em show"
+        fill
+        sizes="(min-width: 1024px) 700px, 100vw"
+        className="object-contain"
+        priority
+      />
+    </a>
   )
 }
 
@@ -180,7 +171,7 @@ export function Hero() {
           className="absolute inset-0"
         >
           {slide.variant === 'ebook' ? (
-            <EbookBackground />
+            <div className="absolute inset-0 bg-black" />
           ) : (
             <Image
               src="/images/hero/hero-home-background.png"
@@ -215,9 +206,20 @@ export function Hero() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Imagem do artista - lado direito (slides padrão) */}
+          {/* Imagem - lado direito */}
           <AnimatePresence mode="wait">
-            {slide.variant === 'default' && (
+            {slide.variant === 'ebook' ? (
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.8 }}
+                className="absolute inset-0"
+              >
+                <EbookImage />
+              </motion.div>
+            ) : (
               <motion.div
                 key={currentIndex}
                 initial={{ opacity: 0, scale: 1.05 }}
